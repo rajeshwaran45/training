@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="../training/css/main.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../training/css/main.css" rel="stylesheet"> -->
     <title>Attributes</title>
 </head>
 <body>
     <div class="container">
+        <h1>Attributes</h1>
         <label for="name">Name (5 to 10 characters) : </label>
         <input type="text" id="name" name="name" placeholder="Enter ur name" required   minlength="4" maxlength="8" size="10"><br>
+        <br>
         <label for="ice-cream-choice">Choose a icecream flavor:</label>
         <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
         <datalist id="ice-cream-flavors">
@@ -32,6 +34,7 @@
               <label for="Php">Php</label>
             </fieldset>
         </form>
+        <br><br>
         <label for="pet-select">Choose a pet:</label>
         <select id="pet-select">
             <option value="">--Please choose an option--</option>
@@ -55,14 +58,36 @@
             </optgroup>
         </select>
         <br><br>
+        <div class="preference">
+            <label for="BlackForest">Do you like BlackForest?</label>
+            <input type="checkbox" name="blackforest" id="blackforest">
+        </div>
+        <div class="preference">
+            <label for="RedVelvet">Do you like RedVelvet?</label>
+            <input type="checkbox" name="redvelvet" id="redvelvet">
+        </div>
+        <br><br>
+        <label for="appt">Time tobe Fix:</label>
+        <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
+        <br><br>
+        <label for="week">Choose a week in 2022:</label>
+        <input type="week" name="week" id="camp-week" min="2022-W1" max="2022-W56" required >
+         <br><br>
+         <label for="start">Choose a month:</label>
+         <input type="month" id="start" name="start" min="2022-01" value="2022-05">
+        <br><br>
         <label for="Like">Fix a Percent</label>
         <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
             <input type="range" id="b" name="b" value="50" /> +
             <input type="number" id="a" name="a" value="10" /> =
             <output name="result" for="a b">60</output>
         </form>
-        <label for="story">Tell about ur self:</label>
-        <textarea id="story" name="story"  rows="5" cols="33">Hi Im...</textarea><br>
+        <br>
+        <label for="fuel">Fuel level:</label>
+        <meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50"> at 50/100 </meter>
+        <br><br>
+        <label for="story">Tell about ur self:</label><br>
+        <textarea id="story" name="story"  rows="5" cols="33">Hi Im...</textarea><br><br>
         <button class="btn btn-success" type="Submit"> Submit</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
