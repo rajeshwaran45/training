@@ -16,15 +16,21 @@
 </head>
 <body onload="loadfun()">
     <br>
-    <input type="text" id="name" placeholder="Enter your username"><br> <br>
-    <input type="text" id="password" placeholder="Enter your password"><br>
+    <input type="text" id="name" placeholder="Enter your username" name="name"><br> <br>
+    <input type="text" id="password" placeholder="Enter your password"><br> <br>
+    <p>Tea
+        <li>Green Tea</li>
+        <li>Lemon Tea</li>
+        <li>Ginger Tea</li>
+
+
 <script>
     const beforeUnloadListener = (event) => {
         event.preventDefault();
         return event.returnValue = "Are you sure you want to exit?";
       };
       
-      const nameInput = document.querySelector("name");
+      const nameInput = document.getElementById("name");
       
       nameInput.addEventListener("input", (event) => {
         if (event.target.value !== "") {
@@ -33,6 +39,10 @@
           removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
         }
       });
+
+      function loadfun(){
+          console.log("Function load");
+      }
     </script>
 </body>
 </html>
