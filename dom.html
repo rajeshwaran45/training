@@ -61,5 +61,20 @@ textarea2.addEventListener('mouseup', onMouseUp, false);
       document.getElementById("url").textContent = document.documentURI;
   </script>
   <hr>
+  <h3>DOM Function Using Form</h3>
+  <form name="login">
+      <label>Username:</label>
+    <input name="email" type="email"><br><br>
+    <label>Password:</label>
+    <input name="password" type="password"><br><br>
+    <button type="submit">Log in</button>
+  </form>
+  
+  <script>
+    var loginForm = document.forms.login; 
+    loginForm.elements.email.placeholder = 'test@example.com';
+    loginForm.elements.password.placeholder = 'password';
+  </script>
+  <hr>
 </body>
 </html>
