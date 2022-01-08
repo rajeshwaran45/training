@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Functions</title>
 </head>
+
 <body>
+    <!-- New body Element alert msg -->
+    <!-- <script>
+        alert(document.body.id); 
+        const aNewBodyElement = document.createElement("body");
+        aNewBodyElement.id = "newBodyElement";
+        document.body = aNewBodyElement;
+        alert(document.body.id); 
+        </script> -->
     <!-- One of DOM Functions active elements -->
+    <h1>DOM Functions</h1>
     <p>Select some text from one of the text areas below:</p>
   <form>
-    <textarea name="ta-example-one" id="ta-example-one" rows="7" cols="40">This is Text Area One. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt, lorem a porttitor molestie, odio nibh iaculis libero, et accumsan nunc orci eu dui.</textarea>
-    <textarea name="ta-example-two" id="ta-example-two" rows="7" cols="40">This is Text Area Two. Fusce ullamcorper, nisl ac porttitor adipiscing, urna orci egestas libero, ut accumsan orci lacus laoreet diam. Morbi sed euismod diam.</textarea>
+    <textarea name="ta-example-one" id="ta-example-one" rows="7" cols="40">This is Text Area One.
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt, lorem a porttitor molestie, odio nibh iaculis libero, et accumsan nunc orci eu dui.</textarea>
+    <textarea name="ta-example-two" id="ta-example-two" rows="7" cols="40">This is Text Area Two.
+         Fusce ullamcorper, nisl ac porttitor adipiscing, urna orci egestas libero, ut accumsan orci lacus laoreet diam. Morbi sed euismod diam.</textarea>
 </form>
 <p>Active element ID: <b id="output-element"></b></p>
 <p>Selected text: <b id="output-text"></b></p>
@@ -32,5 +44,22 @@ const textarea2 = document.getElementById('ta-example-two');
 textarea1.addEventListener('mouseup', onMouseUp, false);
 textarea2.addEventListener('mouseup', onMouseUp, false);
 </script>
+<hr>
+     <!-- Long string using in button -->
+<!-- <button onclick="console.log(document.characterSet);">
+    Log character encoding
+  </button>
+  <script>
+      var string= document.characterSet;
+  </script> -->
+  <h3>This page URL</h3>
+  <p id="urlText">
+    URL:<br/>
+    <span id="url">URL goes here</span>
+  </p>
+  <script>
+      document.getElementById("url").textContent = document.documentURI;
+  </script>
+  <hr>
 </body>
 </html>
