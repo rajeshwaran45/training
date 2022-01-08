@@ -25,17 +25,19 @@
           color:indianred;
         }
         </style>
+        
 </head>
 <body>
+  <div id="wrapper">
   
 <p>Persons informaton with age :</p>
-<input type="button" value="Generate a table." onclick="generate_table()"><br><br><br>
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+
 <br><br>
 <table id="myTable" style="width:50%">
   <thead>
     <tr>
-        <th colspan="5"><h2>PERSON INFORMATION</h2></th>
+        <th colspan="7"><h2>PERSON INFORMATION</h2></th>
     </tr>
 </thead>
 <tbody>
@@ -45,39 +47,61 @@
     <th>Age</th>
     <th>Bloodgroup</th>
     <th>Mobilenumber</th>
+    <th>Option1</th>
+    <th>Option2</th>
   </tr>
-  <tr>
-    <td>Rajesh</td>
-    <td>Waran</td>
-    <td>24</td>
-    <td>B+</td>
-    <td>9688042074</td>
+  <tr id="row1">
+    <td id="name_row1">Rajesh</td>
+    <td id="last_row1">Waran</td>
+    <td id="age_row1">24</td>
+    <td id="group_row1">B+</td>
+    <td id="num_row1">9688042074</td>
+    <td><input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row(1)"></td>
+    <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
+   
   </tr>
-  <tr>
-    <td>Aru</td>
-    <td>Samy</td>
-    <td>24</td>
-    <td>O+</td>
-    <td>8608887608</td>
+  <tr id="row2">
+    <td id="name_row2">Aru</td>
+    <td id="last_row2">Samy</td>
+    <td id="age_row2">24</td>
+    <td id="group_row2">O+</td>
+    <td id="num_row2">8608887608</td>
+    <td><input type="button" id="edit_button2" value="Edit" class="edit" onclick="edit_row(2)"></td>
+    <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
   </tr>
-  <tr>
-    <td>Surya</td>
-    <td>Anbu</td>
-    <td>23</td>
-    <td>A+</td>
-    <td>8072646913</td>
+  <tr id="row3">
+    <td id="name_row3">Surya</td>
+    <td id="last_row3">Anbu</td>
+    <td id="age_row3">23</td>
+    <td id="group_row3">A+</td>
+    <td id="num_row3">8072646913</td>
+    <td><input type="button" id="edit_button3" value="Edit" class="edit" onclick="edit_row(3)"></td>
+    <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
   </tr>
-  <tr>
-    <td>Kodi</td>
-    <td>Vinoth</td>
-    <td>25</td>
-    <td>O-</td>
-    <td>8870119279</td>
+  <tr id="row4">
+    <td id="name_row4">Kodi</td>
+    <td id="last_row4">Vinoth</td>
+    <td id="age_row4">25</td>
+    <td id="group_row4">O-</td>
+    <td id="num_row4">8870119279</td>
+    <td><input type="button" id="edit_button4" value="Edit" class="edit" onclick="edit_row(4)"></td>
+    <td><input type="button" value="Delete" onclick="deleteRow(this)"></td>
   </tr>
+  <!-- <tr>
+    <td><input type="text" id="new_name"></td>
+    <td><input type="text" id="new_last"></td>
+    <td><input type="text" id="new_age"></td>
+    <td><input type="text" id="new_group"></td>
+    <td><input type="text" id="new_num"></td>
+    <td><input type="button" class="add" onclick="add_row();" value="Add Row"></td>
+    </tr> -->
+    
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"><br><br>
   <input type="button" value="add a row."  onclick="add_row()"><br><br>
   <input type="button" value="delete a table." onclick="delete_table()"><br><br>
   <input type="button" value="count a table." onclick="count_table()"><br><br>
 
+  <!-- Search a first name for given table  -->
   <script>
     function myFunction() {
       var input, filter, table, tr, td, i, txtValue;
@@ -98,7 +122,7 @@
       }
     }
     </script>
-
+  <!-- Add a row to table  -->
 <script>
   function add_row() {
     var table = document.getElementById("myTable");
@@ -133,15 +157,24 @@
 			element5.type = "text";
 			element5.name = "txtbox[]";
 			cell5.appendChild(element5);
+      
        }
 </script>
-
+    <!-- Delete method for row defined manually -->
   <script>
     function delete_table() {
       var x= document.getElementById("myTable");
       x.deleteRow(2);
     }
   </script>
+  <!-- Delete method for individual table row -->
+  <script>
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+    }
+    </script>
+   <!-- count a Row in table  -->
   <script>
     function count_table() {
         var totalRowCount = 0;
@@ -159,7 +192,36 @@
         alert(message);
     }
   </script>
+    <!-- Edit a Row in table -->
+    <script>
+      function edit_row(no) {
+        document.getElementById("edit_button"+no).style.display="block";
+
+        var name=document.getElementById("name_row"+no);
+        var last=document.getElementById("last_row"+no);
+        var age=document.getElementById("age_row"+no);
+        var group=document.getElementById("group_row"+no);
+        var num=document.getElementById("num_row"+no);
+
+        var name_data=name.innerHTML;
+        var last_data=last.innerHTML;
+        var age_data=age.innerHTML;
+        var group_data=group.innerHTML;
+        var num_data=num.innerHTML;
+
+        name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>"; 
+        last.innerHTML="<input type='text' id='last_text"+no+"' value='"+last_data+"'>";
+        age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"'>";
+        group.innerHTML="<input type='text' id='group_text"+no+"' value='"+group_data+"'>";
+        num.innerHTML="<input type='text' id='num_text'"+no+"' value='"+num_data+"'>";
+
+
+      }
+
+    </script>
 
 </tbody>
+</table>
+</div>
 </body>
 </html>
