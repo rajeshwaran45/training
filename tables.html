@@ -21,18 +21,24 @@
         h2{
             color:royalblue;
         }
+        h3 {
+          color:indianred;
+        }
         </style>
 </head>
 <body>
   
 <p>Persons informaton with age :</p>
-<br>
-<table style="width:50%">
+<input type="button" value="Generate a table." onclick="generate_table()"><br><br><br>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<br><br>
+<table id="myTable" style="width:50%">
   <thead>
     <tr>
         <th colspan="5"><h2>PERSON INFORMATION</h2></th>
     </tr>
 </thead>
+<tbody>
   <tr>
     <th>Firstname</th>
     <th>Lastname</th>
@@ -58,7 +64,7 @@
     <td>Surya</td>
     <td>Anbu</td>
     <td>23</td>
-    <td>O+</td>
+    <td>A+</td>
     <td>8072646913</td>
   </tr>
   <tr>
@@ -68,8 +74,92 @@
     <td>O-</td>
     <td>8870119279</td>
   </tr>
-</table>
+  <input type="button" value="add a row."  onclick="add_row()"><br><br>
+  <input type="button" value="delete a table." onclick="delete_table()"><br><br>
+  <input type="button" value="count a table." onclick="count_table()"><br><br>
 
-    
+  <script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+    </script>
+
+<script>
+  function add_row() {
+    var table = document.getElementById("myTable");
+			var row = table.insertRow();
+			var cell1 = row.insertCell(0);
+
+			var element1 = document.createElement("input");
+			element1.type = "text";
+			element1.name="txtbox[]";
+			cell1.appendChild(element1);
+
+			var cell2 = row.insertCell(1);
+			var element2 = document.createElement("input");
+      element2.type= "text";
+      element2.name = "txtbox[]";
+      cell2.appendChild(element2);
+
+			var cell3 = row.insertCell(2);
+			var element3 = document.createElement("input");
+			element3.type = "text";
+			element3.name = "txtbox[]";
+			cell3.appendChild(element3);
+
+      var cell4 = row.insertCell(3);
+			var element4 = document.createElement("input");
+			element4.type = "text";
+			element4.name = "txtbox[]";
+			cell4.appendChild(element4);
+
+      var cell5 = row.insertCell(4);
+			var element5 = document.createElement("input");
+			element5.type = "text";
+			element5.name = "txtbox[]";
+			cell5.appendChild(element5);
+       }
+</script>
+
+  <script>
+    function delete_table() {
+      var x= document.getElementById("myTable");
+      x.deleteRow(2);
+    }
+  </script>
+  <script>
+    function count_table() {
+        var totalRowCount = 0;
+        var rowCount = 0;
+        var table = document.getElementById("myTable");
+        var rows = table.getElementsByTagName("tr")
+        for (var i = 0; i < rows.length; i++) {
+            totalRowCount++;
+            if (rows[i].getElementsByTagName("td").length > 0) {
+                rowCount++;
+            }
+        }
+        var message = "Total Row Count: " + totalRowCount;
+        message += "\nRow Count: " + rowCount;
+        alert(message);
+    }
+  </script>
+
+</tbody>
 </body>
 </html>
