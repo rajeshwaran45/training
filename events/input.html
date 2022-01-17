@@ -127,5 +127,29 @@ function txFunction() {
   }
   </script>
   <hr>
+    <h2>On Search Functions</h2>
+    <p>Write something in the search field and press "ENTER".</p>
+
+   <input type="search" id="myinput" onsearch="seFunction()">
+<p id="deo"></p>
+
+<script>
+function seFunction() {
+   var x = document.getElementById("myinput");
+   document.getElementById("deo").innerHTML = "You are searching for: " + x.value;
+}
+</script>
+<hr>
+     <h2>OnSelect Functions</h2>
+
+     Some text: <input type="text" value="Welcome to Madurai!! This City is also called as Thoonganagaram" onselect="selFunction()">
+
+<script>
+function selFunction() {
+  alert("You have selected some text!");
+}
+</script>
+<hr>
+
 </body>
 </html>
