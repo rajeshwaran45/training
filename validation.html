@@ -8,15 +8,17 @@
 </head>
 <body>
     <div class="container">
-        <form name="myForm" action="" method="post" onsubmit="return validateForm()" autocomplete="off">
+        <form name="myForm" action="validation.html" method="post" onsubmit="return validateForm()" autocomplete="off">
             <fieldset>
                 <legend>User details:</legend>
                 <label for="name">UserName (7 to 10 characters) : </label><br>
                 <input type="text" name="name" placeholder="Enter your username" minlength="7" maxlength="10" ><br>
                 <label for="password">Password : </label><br>
                 <input type="password" name="password" placeholder="Enter your password" minlength="6" maxlength="12"  ><br>
+                <!-- <label for="password">Re-Enter Password:</label> <br>
+                <input type="password" name="password2" placeholder="Reenter your password" minlength="6" maxlength="12"> <br> -->
                 <label for="email">Email : </label><br>
-                <input type="email" name="email" id="email" placeholder="Enter your Emailid" maxlength="20"  ><br>
+                <input type="email" name="email" id="email" placeholder="Enter your Emailid" maxlength="30"  ><br>
                 <label for="number">Mobilenumber</label><br>
                 <input type="tel" name="number" placeholder="Enter your Mobilenumber" maxlength="10" ><br>
                 <label for="text">Text Area:</label><br>
@@ -67,17 +69,17 @@
     // }
 
         // Document size calculating
-//         function checkFileSize() {
-//   var FS = document.getElementById("document");
-//   var files = document.files;
-//   if (files.length > 0) {
-//      if (files[0].size > 75 * 1024) { 
-//        document.setCustomValidity("The selected file must not be larger than 75 kB");
-//        return;
-//      }
-//   }
-//   document.setCustomValidity("");
-// }
+        function checkFileSize() {
+  var FS = document.getElementById("document");
+  var files = document.files;
+  if (files.length > 0) {
+     if (files[0].size > 75 * 1024) { 
+       document.setCustomValidity("The selected file must not be larger than 75 kB");
+       return;
+     }
+  }
+  document.setCustomValidity("");
+}
     </script>
 
     <script>
@@ -85,6 +87,7 @@
         var name = document.forms["myForm"]["name"];
         var email = document.forms["myForm"]["email"];
         var password = document.forms["myForm"]["password"];
+        var password2 = document.forms["myForm"]["password2"];
         var number = document.forms["myForm"]["number"];
         var textarea = document.forms["myForm"]["textarea"];
         var date = document.forms["myForm"]["date"];
@@ -104,8 +107,7 @@
             return false;
         }  
 
-  
-  
+         
         if (email.value == "") {
             window.alert(
               "Please enter a valid e-mail address.");
@@ -141,8 +143,18 @@
                 docs.focus();
                 return false;
         }
+        if (password == password2) 
+             {
+             return true;
+         }
+         else  {
+             alert("Password must be same");
+             return false;
+         }
+        
         return true;
-    }     
+    } 
     </script>
+    
 </body>
 </html>
