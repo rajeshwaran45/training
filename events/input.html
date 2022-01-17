@@ -41,5 +41,91 @@ function bgChange(e) {
 btn.addEventListener('click', bgChange);
     </script>
     <hr>
+     <h2> Button Identify</h2>
+    <p>Some text to copy and paste.</p>
+    <input type="text">
+    <p class="result"></p>
+    <script>
+        var editable = document.querySelector('input');
+        var result = document.querySelector('.result');
+        editable.addEventListener('input', (e) => {
+        result.textContent = "Inputted text: " + e.data;
+        });
+    </script>
+    <hr>
+    
+    <!-- On Blur after convert Uppercase -->
+    <h2>convert Uppercase after typing</h2>
+      Enter your name: <input type="text" name="myname" id="myname" onblur="myFunction()">
+
+    <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myname");
+  x.value = x.value.toUpperCase();
+}
+</script>
+<hr>
+      <h2>On Change Functions</h2>
+<select id="dinner" onchange="mywork()">
+    <option value="Shawarma">Shawarma
+    <option value="Burger">Burger
+    <option value="Spring Potatoes">Spring Potatoes
+    <option value="Atho">Atho
+  </select>
+  
+  <p id="dish"></p>
+  
+  <script>
+  function mywork() {
+    var x = document.getElementById("dinner").value;
+    document.getElementById("dish").innerHTML = "You selected: " + x;
+  }
+  </script>
+  <hr>
+      <h2>On Focus Functions</h2>
+    First name: <input type="text" id="fname" onfocus="myFocus(this.id)"><br>
+    Last name: <input type="text" id="lname" onfocus="myFocus(this.id)">  
+  <script>
+  function myFocus(x) {
+    document.getElementById(x).style.background = "Green";
+  }
+  </script>
+  <hr>
+     <h2>OnInput Functions</h2>
+  <p>Write something in the text field to trigger a function.</p>
+  <input type="text" id="mytext" oninput="txFunction()">
+ <p id="dem"></p>
+
+<script>
+function txFunction() {
+  var x = document.getElementById("mytext").value;
+  document.getElementById("dem").innerHTML = "You wrote: " + x;
+}
+</script>
+<hr>
+   <h2>Given Input validations</h2>
+<form action="input.html" method="get">
+    FirstName: <input type="text" oninvalid="alert('You must fill out the form!');" name="fname" required><br><br>
+    LastName : <input type="text" oninvalid="alert('You must fill out the form!');" name="lname" required><br>
+    <input type="submit" value="Submit">
+  </form>
+  <hr>
+
+  <h2>OnReset Functions</h2>
+  <form onreset="reFunction()">
+    Enter name: <input type="text"><br>
+    Enter password: <input type="password">
+    <br>
+    <input type="reset">
+  </form>
+  
+  <script>
+  function reFunction() {
+    alert("The form was reset");
+  }
+  </script>
+  <hr>
 </body>
 </html>
