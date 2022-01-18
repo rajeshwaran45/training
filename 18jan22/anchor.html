@@ -67,7 +67,7 @@ function myfunction() {
 <p id="pass"></p>
 <script>
 function myFun() {
-    window.alert("You want to see ur password");
+    alert("You want to see ur password");
   var x = document.getElementById("Anchor").password;
   document.getElementById("pass").innerHTML = x;
 }
@@ -85,6 +85,28 @@ function myFun() {
 function myfunc() {
   var x = document.getElementById("proto").protocol;
   document.getElementById("pro").innerHTML = x;
+}
+</script>
+<hr>
+<h3>Anchor trigger</h3>
+<a id="search_link" href="https://www.bing.com/">Click Me</a><br>
+<br>
+    <div>
+    <button id="submit">Open in new tab</button>
+    </div>
+    <script>
+        document.getElementById('submit').onclick = function() {
+    var url = document.getElementById('search_link').href;
+    window.open(url);
+}
+    </script>
+    <hr>
+    <h3>Anchor Oncheck Functions</h3>
+    <a href='http://www.google.com' onclick='return check()'>check</a>
+
+<script>
+function check() {
+    return true;
 }
 </script>
 <hr>
