@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor-Events</title>
+</head>
+<body>
+<h3>The a href attribute</h3>
+
+<p>An absolute URL: <a href="https://www.w3schools.com">W3Schools</a></p>
+<!-- <p>A relative URL: <a href="tag_a.asp">The a tag</a></p> -->
+<hr>
+<h3>Click to image download</h3>
+<a id="myAnchor" href="../img/logo.png" download="virtuologo">
+    <img border="0" src="../img/logo.png" alt="W3Schools" width="104" height="142"></a>
+    
+    
+    <button onclick="mynFunction()">Try it</button>
+    
+    
+    <p id="demos"></p>
+    
+    <script>
+    function mynFunction() {
+      var x = document.getElementById("myAnchor").download;
+      document.getElementById("demos").innerHTML = x;
+    }
+    </script>
+    <hr>
+    <h3>Hostname</h3>
+    <p><a id="mYAnchor" href="http://www.example.com:80/test.htm#part2">Example link</a></p>
+
+<p>Click the button to display the hostname of the link above.</p>
+
+<button onclick="mYFunction()">Try it</button>
+
+<p id="fun"></p>
+
+<script>
+function mYFunction() {
+  var x = document.getElementById("mYAnchor").hostname;
+  document.getElementById("fun").innerHTML = x;
+}
+</script>
+<hr>
+<p><a id="myAncher" href="https://www.w3schools.com/js/">Learn JavaScript</a></p>
+
+
+<button onclick="myfunction()">Try it</button>
+
+<p id="demmo"></p>
+
+<script>
+function myfunction() {
+  var x = document.getElementById("myAncher").href;
+  document.getElementById("demmo").innerHTML = x;
+}
+</script>
+<hr>
+<p><a id="Anchor" href="https://rajesh:8454@www.example.com">Example link</a></p>
+
+<p>Click the button to display the password part of the link above.</p>
+
+<button onclick="myFun()">Click Me!</button>
+<p id="pass"></p>
+<script>
+function myFun() {
+    window.alert("You want to see ur password");
+  var x = document.getElementById("Anchor").password;
+  document.getElementById("pass").innerHTML = x;
+}
+</script>
+<hr>
+<p><a id="proto" href="http://www.example.com/test.htm#part2">Example link</a></p>
+
+<p>Click the button to return the protocol of the link above.</p>
+
+<button onclick="myfunc()">Try it</button>
+
+<p id="pro"></p>
+
+<script>
+function myfunc() {
+  var x = document.getElementById("proto").protocol;
+  document.getElementById("pro").innerHTML = x;
+}
+</script>
+<hr>
+</body>
+</html>
