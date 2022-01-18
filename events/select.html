@@ -33,6 +33,70 @@
   <input type="submit" value="Submit">
 </form>
 <hr>
+<h2>Select options with Name</h2>
+<h3>The select form attribute</h3>
+<form action=" " id="foodform">
+  <label for="fname">Firstname:</label>
+  <input type="text" id="name1" name="name1">
+  <input type="submit">
+</form>
+<br>
+<label for="foods">Choose ur favourite food:</label>
+<select id="foods" name="foodlist" form="foodform">
+  <option value="Shawarma">Shawarma</option>
+  <option value="Spring potatoes">Spring potatoes</option>
+  <option value="Fried Rice">Fried Rice</option> 
+</select>
+<p>The drop-down list is defined outside the form element, but will be submitted with the form.</p>
+<hr>
+<h2>Multiple select options</h2>
+<h3>The select multiple attribute</h3>
+<form action=" ">
+  <label for="cars">Choose a car:</label>
+  <select name="cars" id="cars" multiple>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+<p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+<hr>
+<h2>Required options</h2>
+<h3>The select required attribute</h3>
+<p>The required attribute specifies that the user is required to select a value before submitting the form:</p>
 
+<form action="">
+  <label for="Games">Choose ur favorite games:</label>
+  <select name="games" id="games" required>
+    <option value="">None</option>
+    <option value="Cricket">Cricket</option>
+    <option value="Kabbadi">Kabbadi</option>
+    <option value="hockey">Hockey</option>
+    <option value="football">Football</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+<hr>
+
+<h2> Select options size</h2>
+<h3>The select size attribute</h3>
+<p>The size attribute specifies the number of visible options in a drop-down list:</p>
+
+<form action=" ">
+  <label for="batsmans">Choose ur favorite cricketer:</label>
+  <select id="batsmans" name="batsmans" size="2">
+    <option value="Sachin">Sachin</option>
+    <option value="Laara">Laara</option>
+    <option value="Jayasurya">Jayasurya</option>
+    <option value="Gilchrist">Gilchrist</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+<hr>
 </body>
 </html>
