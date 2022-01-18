@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button2-Events</title>
+</head>
+<body>
+    <h2>Basic Onclick button Function</h2>
+    <button onclick="basFunction()">Click me</button>
+    <p id="demo"></p>
+
+<script>
+   function basFunction() {
+    document.getElementById("demo").innerHTML = "Welcome ";
+}
+</script>
+<hr>
+<h2>Click to text color change basic functions</h2>
+<p id="dem" onclick="colFunction()">Click me to change my text color.</p>
+<script>
+function colFunction() {
+  //document.getElementById("dem").style.color = "blue";
+  document.getElementById("dem").style.color = "Green";
+  //document.getElementById("dem").style.color = "yellow";
+}
+</script>
+<hr>
+<h2>Hide button after click</h2>
+<button onclick="hideButton(this)">Click Me!</button>  
+<script>
+    function hideButton(x)
+     {
+         window.alert("Confirm");
+      x.style.display = 'none';
+     }
+    </script>
+    <hr>
+    <h2>Disable a button after click</h2>
+    <button onclick="disFunction()" id="myBtn" >Submit</button>
+<script>
+function disFunction() {
+    window.alert("Confirm to submit");
+  document.getElementById("myBtn").disabled = true;
+}
+</script>
+<hr>
+<h2>Text changing to after click</h2>
+
+<p>When you click a button it will change the text of sample paragraph.</p>
+<p id="demo1">I am sample text.</p>
+<button onclick="change_text()">Click Me!</button>
+<script>
+    function change_text(){
+      window.alert("Confirm to submit");
+      document.getElementById("demo1").innerHTML=" You clicked the button, I am a new line text";
+    }
+</script>
+<hr>
+<!-- <p>Click the button to display greeting.</p>
+
+<p id="demo2"></p>
+
+Name:<br><br>
+<input type="text" id="name3" name="name3">
+<br><br>
+<button onclick="change_text()">Submit</button>
+
+<script>
+function change_text(){
+    var name = document.getElementById("name3").value;
+    document.getElementById("demo2").innerHTML = "Hello " + name;
+}
+</script> -->
+<!-- <hr> -->
+<h2>Change label text</h2>
+Enter a Name: <input type="text" id="temp" value="" />
+    <p>
+        <input type="button" id="bt" value="Change Label Text" onclick="changeLabel()" />
+    </p>
+    <label id="lblEmp">N/A</label>
+    <script>
+        function changeLabel() {
+            let lbl = document.getElementById('lblEmp');
+            let empName = document.getElementById('temp').value;
+    
+            lbl.innerText = empName;     
+        }
+    </script>
+    <hr>
+</body>
+</html>
