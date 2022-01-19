@@ -193,5 +193,28 @@ function myFunct() {
 }
 </script>
 <hr>
+<h2>Convert string to lower case:</h2>
+
+<button onclick="myFuncti()">Click Me!</button>
+
+<p id="deo">WELCOME!</p>
+
+<script>
+function myFuncti() {
+  let text = document.getElementById("deo").innerHTML;
+  document.getElementById("deo").innerHTML =
+  text.toLowerCase();
+}
+</script>
+<hr>
+<h2>Index String Methods</h2>
+
+<p id="string"></p>
+
+<script>
+let strt = "Please locate where 'locate' occurs!";
+document.getElementById("string").innerHTML = strt.indexOf("'locate'");
+</script>
+
 </body>
 </html>
