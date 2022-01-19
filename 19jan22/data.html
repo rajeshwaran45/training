@@ -51,18 +51,34 @@ for(let i=0; i<bike.length; i++)
 document.getElementById("arr1").innerHTML = res;
 </script>
 <hr>
-<!-- <h2>Array concept using while loop</h2>
+<h2>Array concept using while loop</h2>
 <p id="arr2"></p>
 <script>
-    const food = ["Shawarma","FriedRice","Briyani","Fish"];
+    const food = ["Shawarma","FriedRice","Briyani","Fish","Grill"];
     let result = " ";
-    while(i<4)
+    let i = 0;
+    while(i<food.length)
     {
         result += food[i] + "<br>";
         i++;
     }
     document.getElementById("arr2").innerHTML = result;
-</script> -->
+</script>
+<hr>
+<h2>Array concept using do-while loop</h2>
+<p id="do"></p>
+<script>
+const mob = ["Vivo","Oppo","Samsung","Redmi","Honor","iphone"];
+let task = "";
+let i = 0;
+do {
+    task += mob[i] + "<br>";
+    i++;
+}
+while(i<mob.length);
+ document.getElementById("do").innerHTML = task;
+</script>
+<hr>
 <h2>Details of person</h2>
 <p id="sync"></p>
 <script>
@@ -73,6 +89,15 @@ const person = {
 };
 document.getElementById("sync").innerHTML =
 person.firstName + " is " + "having a " +person.bike + " 150 bike.";
+</script>
+<hr>
+<h2> typeof Function</h2>
+<p id="type"></p>
+<script>
+document.getElementById("type").innerHTML = 
+typeof "" + "<br>" +
+typeof 56 + "<br>" + 
+typeof '';
 </script>
 <hr>
 </body>
