@@ -4,9 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Types</title>
+    <title>Data Types,Conditional and loop concepts</title>
 </head>
 <body>
-    
+    <h2>prefix adding</h2>
+<p id="add"></p>
+<script>
+let x = 16 + 4 + "age";
+document.getElementById("add").innerHTML = x;
+</script>
+<hr>
+<h2>Suffix adding</h2>
+<p id="sadd"></p>
+<script>
+    let y = "age" +2 +6;
+    document.getElementById("sadd").innerHTML = y;
+</script>
+<hr>
+<h2>True or False Functions</h2>
+<p id="t r f"></p>
+<script>
+let a = 5;
+let b = 5;
+let c = 6;
+document.getElementById("t r f").innerHTML =
+(a == b) + "<br>" + (a == c);
+</script>
+<hr>
+<h2> Array concept</h2>
+<p id="arr"></p>
+<script>
+const bike = ["Pulsar","R15","KTM","Duke","Apache"];
+document.getElementById("arr").innerHTML = bike[0];
+</script>
+<hr>
+<h2> Array concept using for loop</h2>
+<p id="arr1"></p>
+<script>
+const bike1 = ["Pulsar220","R15.v3","RE","Suzuki","FZ"];
+let res = " ";
+for(let i=0; i<bike.length; i++)
+{
+ res += bike1[i] + "<br>";
+ }
+
+document.getElementById("arr1").innerHTML = res;
+</script>
+<hr>
+<!-- <h2>Array concept using while loop</h2>
+<p id="arr2"></p>
+<script>
+    const food = ["Shawarma","FriedRice","Briyani","Fish"];
+    let result = " ";
+    while(i<4)
+    {
+        result += food[i] + "<br>";
+        i++;
+    }
+    document.getElementById("arr2").innerHTML = result;
+</script> -->
+<h2>Details of person</h2>
+<p id="sync"></p>
+<script>
+const person = {
+  firstName : "rajesh",
+  lastName  : "war",
+  bike : "Pulsar"
+};
+document.getElementById("sync").innerHTML =
+person.firstName + " is " + "having a " +person.bike + " 150 bike.";
+</script>
+<hr>
 </body>
 </html>
