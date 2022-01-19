@@ -31,6 +31,15 @@ document.getElementById("t r f").innerHTML =
 (a == b) + "<br>" + (a == c);
 </script>
 <hr>
+<h2>Length calculations</h2>
+
+<p id="len"></p>
+<p>Virtuo technologies</p>
+<script>
+let size = "Welcome to Virtuo technologies";
+document.getElementById("len").innerHTML = size.length;
+</script>
+<hr>
 <h2> Array concept</h2>
 <p id="arr"></p>
 <script>
@@ -70,12 +79,12 @@ document.getElementById("arr1").innerHTML = res;
 <script>
 const mob = ["Vivo","Oppo","Samsung","Redmi","Honor","iphone"];
 let task = "";
-let i = 0;
+let j = 0;
 do {
-    task += mob[i] + "<br>";
-    i++;
+    task += mob[j] + "<br>";
+    j++;
 }
-while(i<mob.length);
+while(j<mob.length);
  document.getElementById("do").innerHTML = task;
 </script>
 <hr>
@@ -98,6 +107,90 @@ document.getElementById("type").innerHTML =
 typeof "" + "<br>" +
 typeof 56 + "<br>" + 
 typeof '';
+</script>
+<hr>
+<h2> Functions topic</h2>
+
+<p id="fun"></p>
+
+<script>
+function myFunction(p1, p2) {
+  return p1 * p2;
+}
+document.getElementById("fun").innerHTML = myFunction(7, 7);
+</script>
+<hr>
+<h2>Functions callby value</h2>
+
+<p id="call"></p>
+
+<script>
+var d = myFunction(56, 4);
+document.getElementById("call").innerHTML = d;
+
+function myFunction(l, m) {
+  return l / m;
+}
+</script>
+<hr>
+<h2>String slice Methods</h2>
+
+<p id="slice"></p>
+<script>
+let str = "Apple, Mango, Pineapple,Strawberry,Banana, Kiwi";
+document.getElementById("slice").innerHTML = str.slice(7,12); 
+</script>
+<hr>
+<h2>Slice reverse</h2>
+
+<p id="rev"></p>
+<script>
+let str1 = "Apple, Banana, Kiwi";
+document.getElementById("rev").innerHTML = str1.slice(-19,-14);
+</script>
+<hr>
+<script>
+    var aaa = "15";
+    console.log('nan' , isNaN(aaa));
+    isFinite(0);
+    console.log("isFinite",(isFinite(0)));
+    isFinite(NaN); 
+    console.log("isFinite",(isFinite(NaN)));
+    isFinite(2e64);
+    console.log("isFinite",(isFinite(2e64)));
+    isNaN('37');
+    console.log("isNaN",isNaN(37));
+    var h = "3.14";
+    console.log('parseFloat', parseFloat(h));
+    var k = "'015', 10";
+    console.log('parseInt',parseInt(k));
+</script>
+<h2>SubString replacing Methods</h2>
+
+<button onclick="myFunction()">Click Me!</button>
+
+<p id="textt">Please visit Microsoft!</p>
+
+<script>
+function myFunction() {
+  let tex = document.getElementById("textt").innerHTML;
+  document.getElementById("textt").innerHTML =
+  tex.replace("Microsoft","W3Schools");
+}
+</script>
+<hr>
+<h2>Convert string to upper case:</h2>
+
+<button onclick="myFunct()">Click to change!</button>
+
+<p id="dems">Hello World!</p>
+
+<script>
+function myFunct() {
+  let text = document.getElementById("dems").innerHTML;
+  document.getElementById("dems").innerHTML =
+  text.toUpperCase();
+}
 </script>
 <hr>
 </body>
