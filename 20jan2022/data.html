@@ -32,6 +32,29 @@
 
 <p id="tos"></p>
 <hr>
+<h3>The toFixed() method rounds a number to a given number of digits.</h3>
+
+<p id="round"></p>
+<hr>
+<h3>The toPrecision() method returns a string, with a number written with a specified length:</h3>
+
+<p id="precision"></p>
+<hr>
+
+<h3>The Number() method converts variables to numbers:</h3>
+
+<p id="convert"></p>
+<hr>
+
+<h3>The Number() method can convert a date to a number:</h3>
+
+<p id="date"></p>
+<hr>
+
+<h3>The global JavaScript function parseInt() converts strings to numbers:</h3>
+
+<p id="parseint"></p>
+<hr>
 
 <script>
 let str = "Please locate where 'locate' occurs!";
@@ -65,6 +88,44 @@ document.getElementById("tos").innerHTML =
   y.toString() + "<br>" +
    (123).toString() + "<br>" +
    (100 + 23).toString();
+
+   var z = 9.656;
+document.getElementById("round").innerHTML =
+  z.toFixed(0) + "<br>" +
+  z.toFixed(2) + "<br>" +
+  z.toFixed(4) + "<br>" +
+  z.toFixed(6);
+
+  let l = 4.454;
+document.getElementById("precision").innerHTML = 
+  l.toPrecision() + "<br>" +
+  l.toPrecision(2) + "<br>" +
+  l.toPrecision(4) + "<br>" +
+  l.toPrecision(6); 
+
+  document.getElementById("convert").innerHTML = 
+  Number(true) + "<br>" +
+  Number(false) + "<br>" +
+  Number("10") + "<br>" + 
+  Number("  10") + "<br>" +
+  Number("10  ") + "<br>" +
+  Number(" 10  ") + "<br>" +
+  Number("10.33") + "<br>" + 
+  Number("10,33") + "<br>" +
+  Number(" 33") + "<br>" +
+  Number("John");
+
+  let r = new Date();
+document.getElementById("date").innerHTML = Number(r); 
+
+document.getElementById("parseint").innerHTML = 
+  parseInt(-10) + "<br>" +
+  parseInt(-10.33) + "<br>" +
+  parseInt("3.445") + "<br>" +
+  parseInt("186.33") + "<br>" +
+  parseInt("16.5 6") + "<br>" +  
+  parseInt("10 years") + "<br>" +  
+  parseInt("y10");  
 
 </script>
 
