@@ -76,6 +76,71 @@
 <p id="demo"></p>
 <hr>
 
+<h3>Avoid using new Array()</h3>
+<form>
+<input type="text" name="elsearch" id="elsearch">
+<button onclick="searchel()">search</button>
+</form>
+
+<p id="arrsearch"></p>
+<hr>
+
+<h3> isArray r not</h3>
+
+<p id="isarr"></p>
+<hr>
+
+<h3>The pop() method removes the last element from an array.</h3>
+<form>
+<input type="text" name="remove" id="remove">
+<button onclick="removeel()">Remove</button>
+</form>
+
+<p id="remel"></p>
+<p id="remele"></p>
+<hr>
+
+<h3>The push() method returns the new array length:</h3>
+<form>
+<input type="text" name="add" id="add">
+<button onclick="addfoo()">Add</button>
+</form>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<hr>
+
+<h3>Array elements are accessed using their index number:</h3>
+<form onclick="newaddd()">
+<input type="number" name="num" id="num" placeholder="size">
+<input type="text" name="element" id="element" placeholder="Enter name">
+<button onclick="newaddd()">Adding</button>
+</form>
+
+<p id="demo7"></p>
+<p id="demo8"></p>
+<hr>
+
+<h3>Deleting elements in an array:</h3>
+<form onclick="delfun()">
+<input type="number" name="numb" id="numb" placeholder="Enter size">
+<button onclick="delfun()">Delete</button>
+</form>
+
+<p id="all1"></p>
+<p id="all2"></p>
+<hr>
+
+<h2>splice()</h2>
+
+<form onclick="splice()">
+<input type="text" id="nam" name="name">
+<button onclick="splice()">Clickme!</button>
+</form>
+<p id="rem1"></p>
+<p id="rem2"></p>
+<p id="rem3"></p>
+
+
 <script>
 let str = "Please locate where 'locate' occurs!";
 document.getElementById("pos").innerHTML = str.indexOf("locate");
@@ -167,6 +232,7 @@ tex += "</ul>";
 
 document.getElementById("arrrev").innerHTML = tex;
 
+
 const fruit = ["Grapes", "Lemon", "Strawberry"];
 document.getElementById("demo").innerHTML = fruit;
 let element = document.getElementById('newel').value;
@@ -175,6 +241,70 @@ function newadd() {
 
   fruit.push("element");
   document.getElementById("demo").innerHTML = fruit;
+}
+
+
+const points = [40, 100, 1, 5, 25, 10];
+document.getElementById("arrsearch").innerHTML = points;
+
+let val = document.getElementById('elsearch').value;
+
+function searchel() {
+
+document.getElementById("arrsearch").innerHTML = points[val]; 
+}
+
+const fru = ["kiwi", "Avacoda", "Blueberry"];
+document.getElementById("isarr").innerHTML = Array.isArray(fru);
+
+const frui = ["Guava", "Pineapple", "Redbanana", "cherry"];
+document.getElementById("remel").innerHTML = frui;
+var em=document.getElementById('remove').value;
+function removeel(){
+for(i=0;i<em;i++){
+frui.pop();
+document.getElementByid("remele").innerHTML = frui;
+}
+}
+
+const foods = ["Shawarma", "Grill", "Fingerchps", "springPotatoes"];
+var food = document.getElementById('add').value;
+
+function addfoo() {
+document.getElementById("demo5").innerHTML = foods.push("food");
+document.getElementById("demo6").innerHTML = foods;
+}
+
+function newaddd() {
+const mob = ["Vivo", "Samsung", "iphone", "Oppo"];
+document.getElementById("demo7").innerHTML = mob;
+var k = document.getElementById('num').value;
+var l = document.getElementById('element').value;
+
+mob[k] = l;
+document.getElementById("demo8").innerHTML = mob;
+}
+
+function delfun(){
+const lap = ["Dell", "lenovo", "HP", "Acer"];
+var s = document.getElementById('numb').value;
+
+document.getElementById("all1").innerHTML =
+"The first lap is: " + lap[s];
+
+delete lap[s];
+
+document.getElementById("all2").innerHTML = lap;
+}
+
+
+function splice() {
+const juice = ["Mangoju", "Orangeju", "Appleju", "Guavaju"];
+document.getElementById("demo1").innerHTML = "Original Array:<br> " + juice;
+let rem = document.getElementById('nam').value;
+let removed = juice.splice(rem); 
+document.getElementById("demo2").innerHTML = "New Array:<br>" + juice;
+document.getElementById("demo3").innerHTML = "Removed Items:<br> " + removed; 
 }
 
 </script>
