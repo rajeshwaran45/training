@@ -7,6 +7,66 @@
     <title>Datatypes,Objects,Condition and Loop concepts</title>
 </head>
 <body>
-    
+    <h2>String Position Identify</h2>
+
+<p id="pos"></p>
+<hr>
+<!-- <input type="text" name="name" id="input1"> -->
+
+<h2>Template literals allows variables in strings:</h2>
+
+<input type="text" name="fname" id="fname" placeholder="Enter ur firstname">
+<input type="text" name="lname" id="lname" placeholder="Enter ur lastname">
+
+<p id="str"></p>
+<hr>
+<h3>Infinity is returned if you calculate a number outside the largest possible number:</h3>
+
+<p id="lar"></p>
+<hr>
+<h3>The toExponential() method returns a string, with the number rounded and written using exponential notation.</h3>
+
+<p id="exp"></p>
+<hr>
+<h3>The toString() method converts a number to a string.</h3>
+
+<p id="tos"></p>
+<hr>
+
+<script>
+let str = "Please locate where 'locate' occurs!";
+document.getElementById("pos").innerHTML = str.indexOf("locate");
+
+// var t = document.getElementById('input1').value;
+let firstName = document.getElementById('fname').value;
+let lastName  = document.getElementById('lname').value;
+
+let text = `Welcome ${firstName}, ${lastName}!`;
+
+document.getElementById("str").innerHTML = text;
+
+let myNumber = 3; 
+let txt = "";
+while (myNumber != Infinity) {
+   myNumber = myNumber * myNumber;
+   txt = txt + myNumber + "<br>";
+}
+document.getElementById("lar").innerHTML = txt;
+
+let x = 9.656;
+document.getElementById("exp").innerHTML =
+  x.toExponential() + "<br>" + 
+  x.toExponential(2) + "<br>" + 
+  x.toExponential(4) + "<br>" + 
+  x.toExponential(6);
+
+  let y = 123;
+document.getElementById("tos").innerHTML =
+  y.toString() + "<br>" +
+   (123).toString() + "<br>" +
+   (100 + 23).toString();
+
+</script>
+
 </body>
 </html>
