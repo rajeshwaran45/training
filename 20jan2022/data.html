@@ -139,7 +139,22 @@
 <p id="rem1"></p>
 <p id="rem2"></p>
 <p id="rem3"></p>
+<hr>
+<h3>A time-based greeting: Conditions </h3>
 
+<p id="de"></p>
+<hr>
+
+<h3>Biggest among 4numbers</h3>
+<form onclick="big()">
+    <input type="number" name="num1" id="num1">
+    <input type="number" name="num2" id="num2">
+    <input type="number" name="num3" id="num3">
+    <input type="number" name="num4" id="num4">
+    <button onclick="big()">Submit</button>
+</form>
+<p id="des"></p>
+<hr>
 
 <script>
 let str = "Please locate where 'locate' occurs!";
@@ -241,6 +256,7 @@ function newadd() {
 
   fruit.push("element");
   document.getElementById("demo").innerHTML = fruit;
+  console.log("fruits");
 }
 
 
@@ -307,6 +323,49 @@ document.getElementById("demo2").innerHTML = "New Array:<br>" + juice;
 document.getElementById("demo3").innerHTML = "Removed Items:<br> " + removed; 
 }
 
+const time = new Date().getHours();
+let greeting;
+if (time < 10) {
+  greeting = "Good morning";
+} else if (time < 15) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+document.getElementById("de").innerHTML = greeting;
+
+
+function big() {
+    var n1 = document.getElementById('num1').value;
+    var n2 = document.getElementById('num2').value;
+    var n3 = document.getElementById('num3').value;
+    var n4 = document.getElementById('num4').value;
+
+    document.getElementById('des').innerHTML = n1;
+    document.getElementById('des').innerHTML = n2;
+    document.getElementById('des').innerHTML = n3;
+    document.getElementById('des').innerHTML = n4;
+
+    let biggest;
+    if(n1>n2 && n1>n3 && n1>n4) {
+      biggest = "n1 is biggest";
+      console.log("n1 is biggest");
+    }
+    else if (n2>n3 && n2>n4) {
+       biggest = "n2 is biggest";
+       console.log("n2 is biggest");
+    }
+    else if (n3>n4) {
+       biggest = "n3 s biggest";
+       console.log("n3 is biggest");
+    }
+    else {
+         biggest ="n4 is biggest";
+         console.log("n4 is biggest");
+    }
+
+    document.getElementById("des").innerHTML = biggest;
+}
 </script>
 
 </body>
