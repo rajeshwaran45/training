@@ -14,10 +14,11 @@
 <!-- <input type="text" name="name" id="input1"> -->
 
 <h2>Template literals allows variables in strings:</h2>
-
+<form onclick="mydata()">
 <input type="text" name="fname" id="fname" placeholder="Enter ur firstname">
 <input type="text" name="lname" id="lname" placeholder="Enter ur lastname">
-
+<button onclick="mydata()">Add</button>
+</form>
 <p id="str"></p>
 <hr>
 <h3>Infinity is returned if you calculate a number outside the largest possible number:</h3>
@@ -56,17 +57,38 @@
 <p id="parseint"></p>
 <hr>
 
+<h3>The parseFloat() method converts strings to numbers:</h3>
+
+<p id="parsefloat"></p>
+<hr>
+
+<h3>The best way to loop through an array is using a standard for loop:</h3>
+
+<p id="arrrev"></p>
+<hr>
+
+<h3>The push method appends a new element to an array.</h3>
+
+<form>
+<input type="text" name="newel" id="newel">
+<button onclick="newadd()">Add it</button>
+</form>
+<p id="demo"></p>
+<hr>
+
 <script>
 let str = "Please locate where 'locate' occurs!";
 document.getElementById("pos").innerHTML = str.indexOf("locate");
 
 // var t = document.getElementById('input1').value;
+function mydata() {
+    
 let firstName = document.getElementById('fname').value;
 let lastName  = document.getElementById('lname').value;
 
 let text = `Welcome ${firstName}, ${lastName}!`;
-
 document.getElementById("str").innerHTML = text;
+}
 
 let myNumber = 3; 
 let txt = "";
@@ -126,6 +148,34 @@ document.getElementById("parseint").innerHTML =
   parseInt("16.5 6") + "<br>" +  
   parseInt("10 years") + "<br>" +  
   parseInt("y10");  
+
+  document.getElementById("parsefloat").innerHTML = 
+  parseFloat("10") + "<br>" +
+  parseFloat("10.33") + "<br>" +
+  parseFloat("10 6") + "<br>" +  
+  parseFloat("10 years") + "<br>" +
+  parseFloat("years 10");
+  
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let Len = fruits.length;
+
+let tex = "<ul>";
+for (let i = Len-1; i >=0; i--) {
+  tex += "<li>" + fruits[i] + "</li>";
+}
+tex += "</ul>";
+
+document.getElementById("arrrev").innerHTML = tex;
+
+const fruit = ["Grapes", "Lemon", "Strawberry"];
+document.getElementById("demo").innerHTML = fruit;
+let element = document.getElementById('newel').value;
+
+function newadd() {
+
+  fruit.push("element");
+  document.getElementById("demo").innerHTML = fruit;
+}
 
 </script>
 
