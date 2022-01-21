@@ -7,6 +7,66 @@
     <title>Fetch Basics</title>
 </head>
 <body>
+    <h2> Validation</h2>
+
+<p>If the number is less than 10 or greater than 100, an error message will be displayed.</p>
+
+<p>Enter a number and click OK:</p>
+
+<form>
+<input id="inp" type="number" min="10" max="100" required>
+<button onclick="val()">OK</button>
+</form>
+
+<p id="basics"></p>
+<hr>
+
+<h2> Validation manually message</h2>
+
+<input type="text" name="mes" id="mes" placeholder="What your message">
+<button onclick="mydata()">Submit</button>
+
+<p>Enter a number and click OK:</p>
+
+<input id="id1" type="number" max="100">
+<button onclick="mydata()">OK</button>
+
+<p>If the number is greater than 100 (the input's max attribute), an error message will be displayed.</p>
+
+<p id="work"></p>
+<hr>
+<h2>Back functions</h2>
+<button onclick="backfun()">Go Back</button>
+<hr>
+
+<script>
+    function val() {
+      const inpObj = document.getElementById("inp");
+      if (!inpObj.checkValidity()) {
+        document.getElementById("basics").innerHTML = inpObj.validationMessage;
+      } else {
+        document.getElementById("basics").innerHTML = "Input OK";
+      } 
+    } 
+
+    function mydata() {
+
+        var a = document.getElementById('mes').value;
+        document.getElementById('work').innerHTML = a;
+        let text;
+        if (document.getElementById("id1").validity.rangeOverflow) {
+        text = a;
+        } else {
+        text = "Input OK";
+        } 
+        document.getElementById("work").innerHTML = text;
+        }
+
+        function backfun() {
+         window.history.back();
+}
+
+    </script>
     
 </body>
 </html>
