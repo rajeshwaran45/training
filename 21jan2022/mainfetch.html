@@ -9,17 +9,19 @@
 <body>
     
     <script>
-        console.log(window);
-        let request = new XMLHttpRequest();
-            request.open('get', 'https://gorest.co.in/public/v1/users');
-            request.send();
+     const myurl = 'https://gorest.co.in/public/v1/users';       
 
-            request.onload = function() {
-                console.log("successfully get")
-            console.log(request.response);
-            
-};
-        
+
+    fetch(myurl)
+    .then((res) =>{
+        return res.json();
+    })
+    .then((datas) =>{
+        console.log(datas)
+    })
+    
+    
+    
     </script>
 </body>
 </html>
