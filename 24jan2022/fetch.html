@@ -8,21 +8,44 @@
 </head>
 <body>
 
-    <form id="form1" method="post">
-        <fieldset>
-            <label for="fname">FirstName:</label>
-        <input type="text" name="fname" id="fname" placeholder="Enter ur name"> <br><br>
-        <label for="email">Emailid:  </label>
-        <input type="email" name="email" id="email" placeholder="Enter ur Email id"><br><br>
-        <label for="mobilenumber">Mobile Number:</label>
-        <input type="number" name="num" id="num" maxlength="10" placeholder="Enter ur mobile number"><br><br>
-        <button type="submit" name="submit" value="add">Submit</button>
-    </fieldset>
+    <form onsubmit="postfun()">
+       
+         <label for=" name">FirstName:</label>
+        <input type="text" name="names" id="name" placeholder="Enter ur name" value="posting the data"> <br><br>
+        <label for="mess">Message:  </label>
+        <input type="text" name="mes" id="mes" placeholder="Enter ur message"><br><br>
+        <button type="submit" name="submit"   value="add">Submit</button>
+    
     </form>
 
     <script>
+    const myurl='https://jsonplaceholder.typicode.com/posts';
+
+        function postfun() {
         
-     
+        var a = document.getElementById('name').value;
+        var b = document.getElementById('mes').value;
+       
+        fetch(myurl, {
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body:JSON.stringify({
+                title:a,
+                body:b
+            }),
+        })
+         .then ((response)=> response.json())
+         .then((data)=> {
+             console.log("success:",data);
+         })
+            .catch((error)=> {
+           console.log("error:",error);
+            });
+        
+        }  
+        postfun();
     </script>
 </body>
 </html>
