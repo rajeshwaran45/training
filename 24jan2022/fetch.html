@@ -21,31 +21,7 @@
     </form>
 
     <script>
-        console.log(window);
-        let request = new XMLHttpRequest();
-            request.open('get', 'https://gorest.co.in/public/v1/users');
-            request.send();
-
-            request.onload = function() {
-                console.log("successfully get")
-            console.log(request.response);
-            
-};
-
- let param = new URLSearchParams();
-    param.append('title','result1');
-    param.append('body','result2');
-    console.log(param);
-
-    const url = 'https://jsonplaceholder.typicode.com/posts';
-    var form = document.getElementById('form1');
-    form.addEventListener('submit',(e) => {
-      e.preventDefault();
-      var a = document.getElementById('fname').value;
-      var b = document.getElementById('email').value;
-      var c = document.getElementById('num').value;
-
-    });
+        
      
     </script>
 </body>
