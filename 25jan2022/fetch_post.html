@@ -7,43 +7,46 @@
     <title>Fetch Post operations</title>
 </head>
 <body>
-    <form onsubmit="postfun()">
+    <form id="form1">
        
         <label for=" name">FirstName:</label>
-       <input type="text" name="names" id="name" placeholder="Enter ur name"> <br><br>
+       <input type="text" name="title" id="name" placeholder="Enter ur name"> <br><br>
        <label for="mess">Message:  </label>
-       <input type="text" name="mes" id="mes" placeholder="Enter ur message"><br><br>
+       <input type="text" name="body" id="mes" placeholder="Enter ur message"><br><br>
        <button type="submit" name="submit"   value="add">Submit</button>
    
    </form>
 
    <script>
    const myurl='https://jsonplaceholder.typicode.com/posts';
+   var form = document.getElementById('form1');
+   
 
+   
        function postfun() {
+       }
        
-       var a = document.getElementById('name').value;
-       var b = document.getElementById('mes').value;
       
-       fetch(myurl, {
-           method:"POST",
-           headers: {
-               'Content-Type': 'application/json; charset=UTF-8',
-           },
-           body:JSON.stringify({
-               title:a,
-               body:b
-           }),
-       })
-        .then ((response)=> response.json())
-        .then((data)=> {
-            console.log("success:",data);
-        })
-           .catch((error)=> {
-          console.log("error:",error);
-           });
+      
+    //    fetch(myurl, {
+    //        method:"POST",
+    //        headers: {
+    //            'Content-Type': 'application/json; charset=UTF-8',
+    //        },
+    //        body:JSON.stringify({
+    //            title:a,
+    //            body:b
+    //        }),
+    //    })
+    //     .then ((response)=> response.json())
+    //     .then((data)=> {
+    //         console.log("success:",data);
+    //     })
+    //        .catch((error)=> {
+    //       console.log("error:",error);
+    //        });
        
-       }  
+       // }  
 
 
 //         fetch(url, {
@@ -53,7 +56,44 @@
 //         'Content-Type': 'application/x-www-form-urlencoded'
 //       }
 // })
-       postfun();
+
+    // var formdata = form();
+    // formdata.append('title',a);
+    // formdata.append('description',b);
+
+    
+    
+    form.addEventListener('submit',(event) => {
+        event.preventDefault();
+        var a = document.getElementById('name').value;
+        var b = document.getElementById('mes').value;
+
+        async function fileout() {
+            try {
+                var response= await fetch(myurl,{
+                    method:"POST",
+                    headers: {
+                    'Content-Type':'application/json; charset=UTF-8',
+                    },
+                    body:JSON.stringify({a,b})
+                });
+                if(response.ok){
+                    const data = await response.json();
+                    console.log(data);
+                }
+            } 
+            catch (error) {
+                console.log('Error: ' + err);
+            }
+    
+        }
+        fileout();
+    });
+
+
+    
+    
+       
 
 
 
