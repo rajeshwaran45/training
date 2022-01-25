@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch operations</title>
+</head>
+<body>
+    
+    <script>
+    //  const myurl = 'https://gorest.co.in/public/v1/users';       
+
+
+    // fetch(myurl)
+    // .then((res) =>{
+    //     return res.json();
+    // })
+    // .then((datas) =>{
+    //     console.log(datas)
+    // })
+
+
+    const myurl = 'https://gorest.co.in/public/v1/users';  
+
+    const promise = fetch(myurl, {
+        method:"GET",
+    });
+
+    async function fileout() {
+        try {
+            let response = await fetch(myurl);
+            if(!response.ok) throw new Error("some issues");
+
+            if(response.ok){
+                const my_data = await response.json();
+                console.log(my_data);
+            }
+        }
+            catch (err) {
+                console.log("Major error is::",err);
+            }
+        }
+    fileout();
+    
+    
+    </script>
+</body>
+</html>

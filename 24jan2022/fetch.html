@@ -11,7 +11,7 @@
     <form onsubmit="postfun()">
        
          <label for=" name">FirstName:</label>
-        <input type="text" name="names" id="name" placeholder="Enter ur name" value="posting the data"> <br><br>
+        <input type="text" name="names" id="name" placeholder="Enter ur name"> <br><br>
         <label for="mess">Message:  </label>
         <input type="text" name="mes" id="mes" placeholder="Enter ur message"><br><br>
         <button type="submit" name="submit"   value="add">Submit</button>
@@ -45,7 +45,20 @@
             });
         
         }  
+
+
+//         fetch(url, {
+//       method: 'POST', 
+//       body: $.param(data),
+//       headers:{
+//         'Content-Type': 'application/x-www-form-urlencoded'
+//       }
+// })
         postfun();
+
+
+
+
     </script>
 </body>
 </html>
