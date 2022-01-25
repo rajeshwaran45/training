@@ -7,6 +7,27 @@
     <title>Fetch Delete operations</title>
 </head>
 <body>
-    
+    <script>
+        const myurl='https://jsonplaceholder.typicode.com/posts/todos/5';
+
+        async function fileout() {
+            try {
+                 const response = await fetch(myurl, {
+                method: "delete",
+                headers: {
+                    'Content-Type':'application/json; charset=UTF-8'
+                    },
+                    body:true
+            });
+
+           if (!response.ok)    throw new Error(message);
+
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                    console.log('Error: ' + err);
+                }
+        }
+    </script>
 </body>
 </html>
