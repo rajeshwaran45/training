@@ -7,17 +7,55 @@
     <title>Fetch update operations</title>
 </head>
 <body>
+    <form id="myform">
+        <input type="text" name="userid" id="user" placeholder="Enter ur user id"><br><br>
+        <input type="text" name="name" id="name" placeholder="enter ur name"><br><br>
+        <input type="email" name="email" id="email" placeholder="enter ur email"><br><br>
+        <input type="radio" name="gender" value="Male">&nbsp;Male
+        <input type="radio" name="gender" value="Female">&nbsp;Female
+        <input type="radio" name="gender" value="Others">&nbsp;Others <br><br>
+        <input type="submit" value="update">
+    </form>
     
     <script>
-        const myurl='https://jsonplaceholder.typicode.com/posts';
+        const myurl='https://gorest.co.in/public/v1/users/123';
+        var form = document.getElementById('myform');
         
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
 
-        
-        async function fileout() {
+            var a = document.getElementById('user').value;
+            var b = document.getElementById('name').value;
+            var c = document.getElementById('email').value;
+            var d = document.getElementsByName('gender').value;
+
+            const Data = new FormData(form);
+            Data.append("id",a);
+            Data.append("username",b);
+            Data.append("email",c);
+            Data.append("gender",d);
+            
+
+         function update() {
+            fetch(myurl, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type':'application/json; charset=UTF-8',
+                    },
+                body: JSON.stringify({Data})
+            })
+            .then((response) => {
+                response.json().then((response) => {
+                console.log(response);
+                })
+            }).catch(err => {
+                console.error(err)
+            })
 
 
-
-        }
+            }
+            update();
+        })
     </script>
 </body>
 </html>
