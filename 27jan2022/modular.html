@@ -106,6 +106,13 @@
 <p>EPSILON</p>
 <p id="epi"></p>
 <hr>
+<h2>Number Object Properties</h2>
+<p>MIN_SAFE_INTEGER</p>
+<p id="mini"></p>
+<hr>
+<h2>JavaScript Number Methods</h2>
+<p id="numb"></p>
+<hr>
 
 
 <script>
@@ -273,6 +280,10 @@ document.getElementById("cube").innerHTML = Math.cbrt(343);
 document.getElementById("lock").innerHTML = Math.log2(49);
 let u = Number.EPSILON;
 document.getElementById("epi").innerHTML = u;
+let  v = Number.MAX_SAFE_INTEGER;
+document.getElementById("mini").innerHTML = v;
+document.getElementById("numb").innerHTML =
+Number.isInteger(10) + "<br>" + Number.isInteger(89.5);
 </script>
 
 </body>
