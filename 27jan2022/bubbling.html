@@ -23,6 +23,7 @@
     <button id="t2">two</button>
 </form>
 <hr>
+<h2>Bubbling onclick using</h2>
 <div class="button1">
     <button>Button1</button>
     <div class="button2">
@@ -32,6 +33,7 @@
         </div>
     </div>
 </div>
+<hr>
 
 <script>
     function mydar() {
@@ -71,9 +73,9 @@ const button1 = document.querySelector('.button1');
 const button2 = document.querySelector('.button2');
 const button3 = document.querySelector('.button3');
 
-button1.addEventListener('click',welcome );
-button2.addEventListener('click',welcome,tomyhome);
-button3.addEventListener('click',welcome,tomyhome,takeurteaandsnacks);
+button1.addEventListener('click',welcome);
+button2.addEventListener('click',welcometomyhome);
+button3.addEventListener('click',welcometomyhometakeurteaandsnacks);
 
 function welcome(event){
     alert('welcome');
