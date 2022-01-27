@@ -23,6 +23,22 @@
 <p id="fun"></p>
 <hr>
 
+<h2>JavaScript For Of Loop</h2>
+
+<form>
+<input type="text" name="name" id="name" placeholder="Enter ur name">
+<button type="Submit" onsubmit="myfun()">Submit</button>
+</form>
+
+<p id="usefor"></p>
+<hr>
+<h2>JavaScript Map Objects</h2>
+<p id="maping"></p>
+<hr>
+<h2>Add values to a Set:</h2>
+<p id="sets"></p>
+<hr>
+
 
 <script>
     const  x = 8;
@@ -50,6 +66,42 @@ for (let x of foods) {
   text += x + "<br>";
 }
 document.getElementById("fun").innerHTML = text;
+
+var r = document.getElementById('name').value;
+
+r = document.getElementById('usefor').innerHTML;
+let language = r;
+
+let texts = "";
+for (let x of language) {
+  texts += x + "";
+}
+
+document.getElementById("usefor").innerHTML = texts;
+
+const apples = {name: 'Apples'};
+const bananas = {name: 'Bananas'};
+const oranges = {name: 'Oranges'};
+
+const fruits = new Map();
+
+fruits.set(apples, 500);
+fruits.set(bananas, 300);
+fruits.set(oranges, 200);
+
+console.log(fruits);
+
+document.getElementById("maping").innerHTML = fruits.get(bananas);
+
+const letters = new Set();
+
+letters.add("a");
+letters.add("b");
+letters.add("c");
+letters.add("d");
+letters.add("e");
+
+document.getElementById("sets").innerHTML = letters.size;
 </script>
 
 </body>
