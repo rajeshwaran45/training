@@ -63,8 +63,49 @@
 
 <p id="reset"></p>
 <hr>
+<h2>JavaScript String Search</h2>
 
+<form>
+<input type="text" name="sear" id="sear" placeholder="Enter search string">
+<input type="submit" onsubmit="myrad()">
+</form>
 
+<p id="raj"></p>
+
+<p>The includes() method is not supported in Internet Explorer.</p>
+<hr>
+<h2>JavaScript Strings Startswith and Endswith operations</h2>
+<p id="stri"></p>
+<hr>
+<h2>JavaScript Arrays</h2>
+
+<p id="del"></p>
+<hr>
+<h2>JavaScript Arrays</h2>
+
+<p id="des"></p>
+<hr>
+<h2>JavaScript Array.findIndex()</h2>
+<p id="filt"></p>
+<hr>
+<h2>JavaScript Math.trunc()</h2>
+<p id="trun"></p>
+<hr>
+
+<h2>JavaScript Math.sign()</h2>
+<p id="sign"></p>
+<hr>
+<h2>JavaScript Math.cbrt()</h2>
+<p id="cube"></p>
+<hr>
+<h2>JavaScript Math.log2()</h2>
+<p>Math.log2() returns the base 2 logarithm of a number.</p>
+<p id="lock"></p>
+<hr>
+<h2>Number Object Properties</h2>
+<p>EPSILON</p>
+<p id="epi"></p>
+<hr>
 
 
 <script>
@@ -191,6 +232,47 @@ function sum(...args) {
 let l = sum(4, 9, 16, 25, 29, 100, 66, 77);
 
 document.getElementById("reset").innerHTML = l;
+
+
+function myrad() {
+
+var o = document.getElementById('sear').value;
+
+o=document.getElementById('raj').innerHTML;
+
+let tex = "Hello world, welcome to the universe.";
+document.getElementById("raj").innerHTML = tex.includes(o);
+}
+
+let texts = "Hello world, welcome to the universe.";
+document.getElementById("stri").innerHTML = texts.endsWith("universe.");
+
+const myArr = Array.from("ABCDEFG");
+document.getElementById("del").innerHTML = myArr;
+
+const bikes = ["Pulsar", "R15", "RE", "Suzuki","Apache"];
+const keys = bikes.keys();
+
+let texte = "";
+for (let bik of keys) {
+  texte += bik + "";
+}
+
+document.getElementById("des").innerHTML = texte;
+
+const numbers = [4, 9,12, 16, 25, 29];
+
+document.getElementById("filt").innerHTML = " index " + numbers.findIndex(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 10;
+}
+document.getElementById("trun").innerHTML = Math.trunc(19.7);
+document.getElementById("sign").innerHTML = Math.sign(4);
+document.getElementById("cube").innerHTML = Math.cbrt(343);
+document.getElementById("lock").innerHTML = Math.log2(49);
+let u = Number.EPSILON;
+document.getElementById("epi").innerHTML = u;
 </script>
 
 </body>
