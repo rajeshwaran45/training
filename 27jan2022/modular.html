@@ -39,6 +39,33 @@
 <p id="sets"></p>
 <hr>
 
+<h2>JavaScript Class</h2>
+
+<form>
+<input type="text" name="cars" id="cars" placeholder="Enter ur car name">
+<input type="number" name="yr" id="yr" placeholder="Enter ur car manufacturing year">
+<button type="submit" onsumbit="mysub()">Submit</button>
+<p id="cat"></p>
+<hr>
+
+<h2>JavaScript Promise</h2>
+<h3 id="val"></h3>
+<hr>
+<h2>Using JavaScript Symbol()</h2>
+
+<p id="rate"></p>
+<hr>
+<h2>Default Parameter Values</h2>
+
+<p id="par"></p>
+<hr>
+<h2>JavaScript Function Rest Parameter</h2>
+
+<p id="reset"></p>
+<hr>
+
+
+
 
 <script>
     const  x = 8;
@@ -67,6 +94,8 @@ for (let x of foods) {
 }
 document.getElementById("fun").innerHTML = text;
 
+
+function myfun() {
 var r = document.getElementById('name').value;
 
 r = document.getElementById('usefor').innerHTML;
@@ -78,6 +107,7 @@ for (let x of language) {
 }
 
 document.getElementById("usefor").innerHTML = texts;
+}
 
 const apples = {name: 'Apples'};
 const bananas = {name: 'Bananas'};
@@ -102,6 +132,65 @@ letters.add("d");
 letters.add("e");
 
 document.getElementById("sets").innerHTML = letters.size;
+
+function mysub() 
+{
+
+var p= document.getElementById('cars').value;
+var q= document.getElementById('yr').value;
+
+p=document.getElementById('cat').innerHTML;
+q=document.getElementById('cat').innerHTML;
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+const myCar = new Car(p, q);
+document.getElementById("cat").innerHTML =
+myCar.name + " " + myCar.year;
+}
+
+const myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function(){ myResolve("I love You !!"); }, 6000);
+});
+
+myPromise.then(function(value) {
+  document.getElementById("val").innerHTML = value;
+});
+
+//console.log(mypromise);
+
+const person = {
+  firstName: "rajesh",
+  lastName: "waran",
+  age: 24,
+  eyeColor: "black"
+};
+
+let id = Symbol('id');
+person[id] = 14300461;
+
+document.getElementById("rate").innerHTML = person[id] + " " + person[id] ;
+
+function myFunction(i, j) {
+  
+  return i * j;
+}
+document.getElementById("par").innerHTML = myFunction(5,6);
+
+function sum(...args) {
+  let sum = 0;
+  for (let arg of args) sum += arg;
+  return sum;
+}
+
+let l = sum(4, 9, 16, 25, 29, 100, 66, 77);
+
+document.getElementById("reset").innerHTML = l;
 </script>
 
 </body>
