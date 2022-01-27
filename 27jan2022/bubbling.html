@@ -7,6 +7,84 @@
     <title>Hoisiting and Events Bubbling</title>
 </head>
 <body>
-    
+    <form>
+        <input type="text" name="assign" id="assign" placeholder="Enter the value">
+        <input type="submit" onclick="mydar()">
+    </form>
+    <p id="demo"></p>
+<hr>
+<p id="use"></p>
+<hr>
+<h1>Events bubbling </h1>
+<hr>
+  <h2>Onclick change text</h2>
+<form id="outside">
+    <button id="t1">one</button>
+    <button id="t2">two</button>
+</form>
+<hr>
+<div class="button1">
+    <button>Button1</button>
+    <div class="button2">
+        <button>Button2</button><br>
+        <div class="button3">
+            <button>Button3</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function mydar() {
+var a = document.getElementById('assign').value;
+document.getElementById('demo').innerHTML = a;
+x = a; 
+
+elem = document.getElementById("demo");
+ elem.innerHTML=x;  
+ console.log(x);         
+
+var x; 
+}
+
+var b = 5;
+ c = 7;
+
+elem = document.getElementById("use");     
+elem.innerHTML = "b is " + b + " and c is " + c;  
+
+ var c; 
+ var c=7; //ippadi kudutha work agathu
+
+ 
+function modifyText() {
+  const t2 = document.getElementById("t2");
+  if (t2.firstChild.nodeValue == "three") {
+    t2.firstChild.nodeValue = "two";
+  } else {
+    t2.firstChild.nodeValue = "three";
+  }
+}
+const el = document.getElementById("outside");
+el.addEventListener("click", modifyText, false);
+
+const button1 = document.querySelector('.button1');
+const button2 = document.querySelector('.button2');
+const button3 = document.querySelector('.button3');
+
+button1.addEventListener('click',welcome );
+button2.addEventListener('click',welcome,tomyhome);
+button3.addEventListener('click',welcome,tomyhome,takeurteaandsnacks);
+
+function welcome(event){
+    alert('welcome');
+}
+function welcometomyhome(event){
+    alert('welcome,tomyhome');
+}
+function welcometomyhometakeurteaandsnacks(event){
+    alert('welcome,tomyhome,takeurteaandsnacks');
+}
+
+</script>
 </body>
 </html>
