@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6+ and modular javascript functions</title>
+</head>
+<body>
+    <h2>Redeclaring a Variable Using let,var and const</h2>
+
+    <p id="demo"></p>
+    <hr>
+    <h2>JavaScript Arrow Functions</h2>
+<form>
+<input type="number" name="num" placeholder="Enter 1st number">
+<input type="number" name="num1" placeholder="Enter 2nd number">
+<button type="submit" onsubmit="myfun()">Submit</button>
+</form>
+<p id="dem"></p>
+<hr>
+<h2>JavaScript For  Loop</h2>
+<p id="fun"></p>
+<hr>
+
+
+<script>
+    const  x = 8;
+    {
+    const y = 2;
+    }
+    {
+    const x=5;
+    }
+    const y=7;
+document.getElementById("demo").innerHTML = x +"<br>"+y;
+
+function myfun() {
+var a = document.getElementByname('num').value;
+var b = document.getElementByname('num1').value;
+
+const z = (m, n) => m * n;
+document.getElementById("dem").innerHTML = z('a', 'b');
+}
+
+const foods = ["Briyani", "Shawarma", "Spring potatoes"];
+
+let text = "";
+for (let x of foods) {
+  text += x + "<br>";
+}
+document.getElementById("fun").innerHTML = text;
+</script>
+
+</body>
+</html>
