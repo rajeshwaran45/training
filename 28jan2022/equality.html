@@ -8,18 +8,74 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+    <form onclick="mydar()">
+        <input type="date" id="d1" name="d1">
+        <!-- <button type="submit" onclick="mydar()">Submit</button> -->
+    </form>
+    <p id="demo"></p>
     <script>
         //var a = moment().format("ddd,Do MMMM YYYY, ha");
 
-        var a = moment(" jan 27 2022 17:30:03 GMT+0300").fromNow(true);
+       // var a = moment(" jan 27 2022 17:30:03 GMT+0300").fromNow(true);
         //var a = moment().format('MM/DD/YYYY');
         //var a = moment("2022-06","YYYY-MM").daysInMonth();
         //var a = moment("2021","YYYY").weeksInYear();
         //var a = Array.from({length: moment('2024-02').daysInMonth()}, (x, i) => moment().startOf('month').add(i, 'days').format('DD'));
         //console.log(a);
         //console.log(console.log(`Month Number : moment().format('M') ==> `,moment().format('M')));
-        console.log(a)
+
+
+        // const a = "14:00";
+        // const b = "17:33";
+        // var c = moment(a).diff(b).format("HH:mm")
+        // console.log(c);
+
+        // const a = moment("15:00","HH:mm", true).format();
+        // const b = moment("18:38","HH:mm", true).format();
+
+        // var c = moment(b).diff(a,"minutes", true);
+        // var d = moment().hours(0).minutes(c).format('HH:mm');
+        // console.log(d);
+
+        // let date = '2020-05-06T00:00:00.000Z'
+        // let dateValue = moment(date).local().toDate();
+        // console.log(datevalue);
+
+        var dateVariable = moment("28-01-2022","DD-MM-YYYY").format();
+        var a = moment.utc(dateVariable.toLocaleString()).format('DD-MM-YY');
+        console.log(a);
+
+        // var time = "16:30:00";
+        // var formatted = moment(time, "HH:mm:ss ").format("LT ");
+        // console.log(formatted); 
+
+        var b=moment().subtract(7, 'days').format("dddd, MMMM Do YYYY, h:mm:ss ");
+        console.log(b);
+
+        var c=moment().add(7,'days').format("dddd, MMMM Do YYYY, h:mm:ss ");
+        console.log(c);
+
+
+        function mydar() {
+            var d = document.getElementById('d1').value;
+            document.getElementById('demo').innerHTML = d;
+
+            var e=moment().add(7,'days').format(d,"h:mm:ss");
+            console.log(e);
+        }
+
+        var myDate = moment().format('MM-DD-YYYY,HH:mm:ss');
+            console.log(moment(myDate).format("YYYY-MM-DD HH:mm:ss"));
+            console.log("Date: "+moment(myDate).format("YYYY-MM-DD"));
+            console.log("Year: "+moment(myDate).format("YYYY"));
+            console.log("Month: "+moment(myDate).format("MM"));
+            console.log("Month: "+moment(myDate).format("MMMM"));
+            console.log("Day: "+moment(myDate).format("DD"));
+            console.log("Day: "+moment(myDate).format("dddd"));
+            console.log("Time: "+moment(myDate).format("HH:mm"));
+            console.log("Time: "+moment(myDate).format("hh:mm A"));
+
     </script>
     
 </body>
