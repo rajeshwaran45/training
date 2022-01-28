@@ -88,6 +88,25 @@ document.getElementById("d6").innerHTML =
 "  my age is " + myMe.age; 
 console.log("  my age is " + myMe.age);
 }
+
+const myDate = new Date();
+let object = myDate;
+console.log("myDate",object.getFullYear());
+
+do {  
+  object = Object.getPrototypeOf(object);
+  console.log(object);
+
+} while(object);
+const myObject = {
+  city: 'Andhra',
+  citys() {
+    console.log(`Greetings from ${this.city}`);
+  }
+}
+myObject.citys();
+console.log("City variable are place in object : ",myObject.hasOwnProperty('city'));
+console.log(Object.getPrototypeOf(myObject));
 </script>
 </body>
 </html>
