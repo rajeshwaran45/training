@@ -25,12 +25,33 @@
     
     <input type="range">
      -->
+     <show-hello name="Rajesh"></show-hello>
     <script>
       var button1 = document.createElement("button");
       button1.innerHTML = "Click";
       button1.className = "buttonclick";
       button1.id = "btncli";
       document.querySelector('body').appendChild(button1);
+
+customElements.define('show-hello', class extends HTMLElement {
+  connectedCallback() {
+    const shadow = this.attachShadow({mode: 'open'});
+    shadow.innerHTML = `<p>
+      Hello, ${this.getAttribute('name')}
+    </p>`;
+  }
+});
+
+const div = document.createElement('div');
+div.id = "div-id";
+const header = document.createElement('h1');
+header.innerHTML = 'its a Shadow DOM';
+const btn = document.createElement("button");
+btn.innerHTML = "add";
+const shadowRoot = div.attachShadow({ mode: 'open'});
+shadowRoot.appendChild(header);
+shadowRoot.appendChild(btn);
+document.querySelector('body').appendChild(div);
     </script>
   
 </body>
