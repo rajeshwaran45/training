@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Promises learning</title>
 </head>
 <body>
-    
+    <h2>JavaScript Promise</h2>
+    <p id="d1"></p>
+    <p id="d2"></p>
+<hr>
+
+    <script>
+        function myfun(some) {
+            document.getElementById("d1").innerHTML = some;
+        }
+
+        let myPromise = new Promise(function(myResolve, myReject) {
+            let x = "0";
+
+            if (x == 0) {
+                console.log("Everything is alright");
+            } else {
+                console.log("Some Error");
+            }
+        });
+
+        function myfun2(some1) {
+            document.getElementById("d2").innerHTML = some1;
+        }
+
+        let myPromise1 = new Promise(function(Resolve, Reject) {
+            let y = "1";
+
+            if (y === 1) {
+             console.log("Everything is alright");
+            } else {
+               console.log("Some Error");
+            }
+        });
+
+
+        myPromise.then(
+        function(value) {myfun(value);},
+        function(error) {myfun(error);}
+        );
+        myPromise1.then(
+        (value) => myfun2(value),
+        (error) => myfun2(error),
+        );
+        
+
+        var p1 = Promise.resolve(3);
+        var p2 = 1337;
+        var p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+                resolve("foo");
+            }, 100);
+            });
+
+        Promise.all([p1, p2, p3]).then(values => {
+        console.log(values); // [3, 1337, "foo"]
+});
+
+    </script>
 </body>
 </html>
