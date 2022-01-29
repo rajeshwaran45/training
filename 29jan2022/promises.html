@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promises learning</title>
+    <title>Promises and observable learning</title>
 </head>
 <body>
     <h2>JavaScript Promise</h2>
@@ -61,8 +61,42 @@
             });
 
         Promise.all([p1, p2, p3]).then(values => {
-        console.log(values); // [3, 1337, "foo"]
+        console.log(values);
 });
+
+
+        var p = Promise.resolve([4,2,3]);
+        p.then(function(v) {
+        console.log(v[0],v[1], v[2]); 
+        });
+
+        var p4 = new Promise(function(resolve, reject) {
+            resolve('Success');
+            });
+
+            p4.then(function(value) {
+            console.log(value); 
+            throw new Error('oh, no!');
+            }).catch(function(e) {
+            console.error(e.message); 
+            }).then(function(){
+            console.log('after a catch the chain is restored');
+            }, function () {
+            console.log('Not fired due to the catch');
+            });
+
+        
+            p4.then(function(value) {
+            console.log(value); 
+            return Promise.reject('oh, no!');
+            }).catch(function(e) {
+            console.error(e); 
+            }).then(function(){
+            console.log('after a catch the chain is restored');
+            }, function () {
+            console.log('Not fired due to the catch');
+            });
+
 
     </script>
 </body>
