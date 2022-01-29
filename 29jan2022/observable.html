@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/Rx.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.0/Rx.js"></script> 
     <title>Observable </title>
 </head>
 <body>
-    
+
+    <script>
+        
+
+        const observable = new Rx.Observable(subscriber => {
+        subscriber.next(1);
+        subscriber.next(2);
+        subscriber.next(3);
+        setTimeout(() => {
+            subscriber.next(4);
+            subscriber.complete();
+        }, 1000);
+        });
+
+        console.log('just before subscribe');
+        observable.subscribe({
+        next(x) { console.log('got value ' + x); },
+        error(err) { console.error('something wrong occurred: ' + err); },
+        complete() { console.log('done'); }
+        });
+        console.log('just after subscribe');
+
+
+
+        const foo = new Rx.Observable(subscriber => {
+            console.log('Hello');
+            subscriber.next(42);
+        });
+
+        foo.subscribe(x => {
+            console.log(x);
+        });
+        foo.subscribe(y => {
+            console.log(y);
+        });
+    </script>
 </body>
 </html>
