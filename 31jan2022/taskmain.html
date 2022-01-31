@@ -9,29 +9,90 @@
 <body>
 
     <h2>You clicked Bitcoin options in coincap Please use console to see the results</h2>
+    <h1>Bitcoin</h1>
+<ul id="Bitcoin"></ul>
+
+
     <script>
-        const myurl = 'https://api.coincap.io/v2/assets/bitcoin';  
+//         const myurl = 'https://api.coincap.io/v2/assets/bitcoin';  
 
-        const promise = fetch(myurl, {
-        method:"GET",
-        mode:'no-cors',
-});
+//         const promise = fetch(myurl, {
+//         method:"GET",
+//         mode:'no-cors',
+// });
 
-async function fileout() {
-        try {
-            let response = await fetch(myurl);
-            if(!response.ok) throw new Error("some issues");
+// async function fileout() {
+//         try {
+//             let response = await fetch(myurl);
+//             if(!response.ok) throw new Error("some issues");
 
-            if(response.ok){
-                const my_data = await response.json();
-                console.log(my_data);
-            }
-        }
-            catch (err) {
-                console.log("Major error is::",err);
-            }
-        }
-    fileout();
+//             if(response.ok){
+//                 const my_data = await response.json();
+//                 console.log(my_data);
+//             }
+//         }
+//             catch (err) {
+//                 console.log("Major error is::",err);
+//             }
+//         }
+//     fileout();
+
+
+
+    const ul = document.getElementById('Bitcoin');
+  const list = document.createDocumentFragment();
+  const url = 'https://api.coincap.io/v2/assets/bitcoin';
+
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      let Bitcoin = data.data;
+
+    
+        let li = document.createElement('li');
+        let id = document.createElement('h2');
+        let rank = document.createElement('h2');
+        let symbol = document.createElement('h2');
+        let name = document.createElement('h2');
+        let supply = document.createElement('h2');
+        let maxsupply = document.createElement('h2');
+        let marketCapusd = document.createElement('h2');
+        let volumeUsd24hr = document.createElement('h2');
+        let priceUsd = document.createElement('h2');
+        let changePercent24hr = document.createElement('h2');
+        let vwap24hr = document.createElement('h2');
+
+
+        id.innerHTML = `${Bitcoin.id}`;
+        rank.innerHTML = `${Bitcoin.rank}`;
+        symbol.innerHTML = `${Bitcoin.symbol}`;
+        name.innerHTML = `${Bitcoin.name}`;
+        supply.innerHTML = `${Bitcoin.supply}`;
+        maxsupply.innerHTML = `${Bitcoin.maxsupply}`;
+        marketCapusd.innerHTML = `${Bitcoin.marketCapusd}`;
+        volumeUsd24hr.innerHTML = `${Bitcoin.volumeUsd24hr}`;
+        priceUsd.innerHTML = `${Bitcoin.priceUsd}`;
+        changePercent24hr.innerHTML = `${Bitcoin.changePercent24hr}`;
+        vwap24hr.innerHTML = `${Bitcoin.vwap24hr}`;
+       
+
+        li.appendChild(id);
+        li.appendChild(rank);
+        li.appendChild(symbol);
+        li.appendChild(name);
+        li.appendChild(supply);
+        li.appendChild(maxsupply);
+        li.appendChild(marketCapusd);
+        li.appendChild(volumeUsd24hr);
+        li.appendChild(priceUsd);
+        li.appendChild(changePercent24hr);
+        li.appendChild(vwap24hr);
+        list.appendChild(li);
+      
+    })
+  ul.appendChild(list);
     </script>
 </body>
 </html>
