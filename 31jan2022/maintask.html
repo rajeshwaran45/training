@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task</title>
+</head>
+<body>
+    <form id="postform" method="post">
+        <input type="text" id="it" name="it" placeholder="using name"><br><br>
+        <input type="text" id="rank" placeholder="rank"><br><br>
+        <input type="text" id="symbol" placeholder="symbol"><br><br>
+        <input type="text" id="name" placeholder="name"><br><br>
+        <input type="number"  id="supply" placeholder="supply amount"><br><br>   
+        <input type="number"  id="maxsupply" placeholder="max supply amount"><br><br>        
+        <input type="number"  id="caps"  placeholder="Market caps usd"> <br><br> 
+        <input type="number"  id="volume" placeholder="Volume usd"><br><br>
+        <input type="number"  id="price" placeholder="Price usd"><br><br>
+        <input type="number"  id="percent" placeholder="percent24hr"><br><br>
+        <input type="number"  id="vwap" placeholder="vwap24hr"><br><br> 
+        <input type="submit" value="add">
+      </form>
+
+      <script>
+
+    const myurl = "https://docs.coincap.io/";
+    var form = document.getElementById("postform");
+
+    form.addEventListener("submit",(e) => {
+      e.preventDefault();
+      var id = document.getElementById("it").value;
+      var rank = document.getElementById("rank").value;
+      var symbol = document.getElementById("symbol").value;
+      var name = document.getElementById("name").value;
+      var supply = document.getElementById("supply").value;
+      var maximum = document.getElementById("maxsupply").value;
+      var market = document.getElementById("caps").value;
+      var volume = document.getElementById("volume").value;
+      var price = document.getElementById("price").value;
+      var percentage = document.getElementById("percent").value;
+      var wap = document.getElementById("vwap").value; 
+
+
+      async function postdata(){
+        var arrobj = { 
+            id:id,
+            rank:rank,
+            symbol:symbol,
+            name:name,
+            suplly:supply,
+            maxsupply:maximum,
+            marketCapsusd:market,
+            volumeUsd24hr:volume,
+            priceUsd:price,
+            changePercent24hr:percent,
+            vwap24hr:wap,
+        };
+        console.log(arrobj);
+
+        const res = await fetch(myurl,{
+          method:"POST",
+          mode:"no-cors",
+          body: JSON.stringify(arrobj),
+          headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Authorization':' Bearer a240d3a5-b4b4-4a9d-b02f-4338f6f5c76c',
+            'Accept': 'application/json',
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+        var output = await res.json();
+        console.log(output);
+
+      }
+      postdata();
+    });
+      </script>
+</body>
+</html>

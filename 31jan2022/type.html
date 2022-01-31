@@ -7,6 +7,50 @@
     <title>Type script learning</title>
 </head>
 <body>
-    
+
+    <form onsubmit="myfun()">
+        <input type="text" name="fname" id="fname" placeholder="Enter ur firstname">
+        <input type="text" name="lname" id="lname" placeholder="Enter ur lastname">
+        <input type="number" name="age" id="age" placeholder="Enter ur age">
+        <input type="submit" value="submit">
+    </form>
+    <p id="demo"></p>
+    <script>
+        var message = "Hello World" 
+        console.log(message);
+
+        var Greeting = (function () {
+            function Greeting() {
+        }
+            Greeting.prototype.greet = function () {
+            console.log("Hii Welcome!!!");
+        };
+	        return Greeting;
+        }());
+
+        var obj = new Greeting();
+            obj.greet();
+
+            function myfun() {
+
+                var a = document.getElementById('fname').value;
+                var b = document.getElementById('lname').value;
+                var c = document.getElementById('age').value;
+
+                document.getElementById('demo').innerHTML = a;
+                document.getElementById('demo').innerHTML = b;
+                document.getElementById('demo').innerHTML = c;
+
+            var person = {Firstname:a, Lastname:b, Age:c};
+            var perproperty;
+            for (perproperty in person) {
+                console.log(perproperty + ": " + 
+                person[perproperty ]);
+            }
+        }
+
+
+        
+    </script>
 </body>
 </html>
