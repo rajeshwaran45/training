@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./task.css">
+    <title>Login page</title>
+</head>
+<body>
+
+    <div id="loginbox">            
+        <form id="loginform" class="form-vertical" id="loginform" name="loginform" autocomplete="off" action="dashboard.html">
+             <div class="control-group normal_text"> <h1>Welcome</h1></div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on"><i class="fa fa-user"></i></span><input type="email" id="email" name="email" required  placeholder="Emailid" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on"><i class="fa fa-lock"></i></span><input type="password" id="pass" name="password" required  placeholder="Password" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <span class="pull-left"><a href="new.html" class="flip-link btn btn-inverse" id="to-recover">New Registration</a></span>
+                <span class="pull-right"><input type="submit" class="btn btn-success" name="Submit" value="Login"/></span>
+            </div>
+        </form>        
+    </div>
+    <script>
+        const myurl = "https://reqres.in/api/users";
+
+        const form = document.getElementById('loginform');
+
+        var a = document.getElementById('email').value;
+        var b = document.getElementById('pass').value;
+            
+       
+
+        const promise = fetch(myurl, {
+        method:"GET",
+    });
+    async function fileout() {
+        try {
+            let response = await fetch(myurl);
+            if(!response.ok) throw new Error("some issues");
+
+            if(response.ok){
+                const my_data = await response.json();
+                console.log(my_data);
+            }
+        }
+            catch (err) {
+                console.log("Major error is::",err);
+            }
+        }
+    fileout();
+
+
+    // form.addEventListener('submit',(event) => {
+    //     event.preventDefault();
+    //     var a = document.getElementById('email').value;
+    //     var b = document.getElementById('pass').value;
+
+    //     const promise = fetch(myurl, {
+    //     method:"GET",
+    //     });
+
+    //     async function fileout() {
+    //     try {
+    //         let response = await fetch(myurl);
+    //         if(!response.ok) throw new Error("some issues");
+
+    //         if(response.ok){
+    //             const my_data = await response.json();
+    //             console.log(my_data);
+    //         }
+    //     }
+    //         catch (err) {
+    //             console.log("Major error is::",err);
+    //         }
+    //     }
+    // fileout();
+
+
+    // })
+    
+    </script>
+    
+</body>
+</html>

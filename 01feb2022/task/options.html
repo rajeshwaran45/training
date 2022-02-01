@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table" id="myTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>avatar</th>
+              <th>Option1</th>
+              <th>option2</th>
+            </tr>
+          </thead>
+          <tbody id="data">
+      
+          </tbody>
+        </table>
+      </div>
+
+      <script>
+          const myurl = "https://reqres.in/api/users?page=2";
+
+fetch(myurl).then(
+res => {
+res.json().then(
+data => {
+console.log(data.data);
+if (data.data.length > 0) {
+
+  var temp = "";
+  data.data.forEach((itemData) => {
+    temp += "<tr>";
+    temp += "<td>" + itemData.id + "</td>";
+    temp += "<td>" + itemData.email + "</td>";
+    temp += "<td>" + itemData.first_name + "</td>";
+    temp += "<td>" + itemData.last_name + "</td>";
+    temp += "<td>" + itemData.avatar +"</td>"
+    temp += "<td><input type='button' value='Delete' onclick='deleteRow(this)'></td>";
+    temp += "<td><input type='button' value='Edit' onclick='editfun()'></td></tr>";
+  });
+  document.getElementById('data').innerHTML = temp;
+}
+}
+)
+}
+)
+
+function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+    }
+
+ </script>
+</body>
+</html>

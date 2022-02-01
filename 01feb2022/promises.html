@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Promises Form validation</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="name" id="name" placeholder="Enter ur name"><br><br>
+        <input type="email" name="email" id="email" placeholder="Enter ur Email id"><br><br>
+        <input type="number" name="mob" d="mob" placeholder="Enter ur mobile number"><br>
+        <input type="submit" value="submit" onsubmit="myfun()">
+    </form>
+    <p id="form1"></p>
+    <script>
+        function myfun() {
+            var a = document.getElementById('name').value;
+            var b = document.getElementById('email').value;
+            var c = document.getElementById('mob').value;
+
+            document.getElementById('form1').innerHTML = a;
+            document.getElementById('form1').innerHTML = b;
+            document.getElementById('form1').innerHTML = c;
+
+
+            if (a == "") {   
+             window.alert("Name required");  
+                return false;     
+            }   
+            if(a.length<5){  
+                alert("Username should be atleast 5 characters");  
+                return false;  
+            }  
+  
+            at = b.indexOf("@");      
+         dot = b.lastIndexOf(".");      
+           
+         if (at < 1 || ( dot - at < 2 )) {         
+            alert("Incorrect Email-ID")           
+            return false;      
+         }       
+  
+  
+            if (c == "") {   
+             alert("Mobile number is required");  
+                return false;     
+            }   
+            if(c.length<10 || c.length>10){  
+                alert("Mobile number should be of 10 digits");  
+                return false;  
+            } 
+
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+ 
