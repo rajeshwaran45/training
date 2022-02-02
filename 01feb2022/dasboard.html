@@ -48,7 +48,7 @@
             temp += "<td>" + itemData.last_name + "</td>";
             temp += "<td>" + itemData.avatar +"</td>";
             temp += "<td><input type='button' value='Delete' onclick='deleteRow(this)'></td>";
-            temp += "<td><input type='button' value='Edit' onclick='editfun()'></td></tr>";
+            temp += "<td><input type='button' value='Edit' onclick='myedit()'></td></tr>";
           });
           document.getElementById('data').innerHTML = temp;
         }
@@ -58,9 +58,84 @@
 )
 
 function deleteRow(r) {
+
+    alert("sure you want to delete this row?");
       var i = r.parentNode.parentNode.rowIndex;
       document.getElementById("myTable").deleteRow(i);
     }
+
+    function myedit(){
+  const url = "https://reqres.in/api/users/1" ;
+
+async function patches(){
+  const response = await fetch(url,{
+    method: "PUT",
+    body:JSON.stringify({
+      first_name:"Joe_vince"
+    }),
+    headers:{
+      'Accept': 'application/json',
+      'Content-type': 'application/json; charset=UTF-8',
+    }
+  });
+  var output = await response.json();
+  console.log(output);
+  
+}
+patches();
+}
+
+
+// function myedit() {
+//   if ($("#first_name").val() != null && $("#first_name").val() != '') {
+       
+//         nameAddToTable();
+
+        
+//         formClear();
+
+        
+//         $("#first_name").focus();
+//     }
+// }
+
+// function nameAddToTable() {
+    
+//     if ($("#myTable data").length == 0) {
+//         $("#myTable").append("<tbody></tbody>");
+//     }
+
+//     $("#myTable data").append("<tr>" +
+//         "<td>" + $("#first_name").val() + "</td>" +
+//         "</tr>");
+// }
+
+// function formClear() {
+//     $("#first_name").val("");
+// }
+
+
+
+const durl = 'https://reqres.in/api/users?page=2';
+
+const promise = fetch(durl, {
+        method:"GET",
+    });
+    async function fileout() {
+        try {
+            let response = await fetch(durl);
+            if(!response.ok) throw new Error("some issues");
+
+            if(response.ok){
+                const my_data = await response.json();
+                console.log(my_data);
+            }
+        }
+            catch (err) {
+                console.log("Major error is::",err);
+            }
+        }
+    fileout();
 
 
 
