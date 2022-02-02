@@ -71,7 +71,7 @@
 
             if(x==="QpwL5tke4Pnpja7X4"){
                 
-               
+               alert("Token is matched Go ahead");
             }
             else{
                 alert("Token missing");
@@ -110,6 +110,27 @@
 
 
     // })
+
+
+    fetch(myurl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      var myArray = data.data;
+
+      var filtered = myArray.filter(function(email){
+
+        return email;
+      });
+
+      console.log(filtered);
+
+      
+    }
+);
     
     </script>
     
