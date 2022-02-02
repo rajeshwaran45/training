@@ -11,7 +11,7 @@
 <body>
 
     <div id="loginbox">            
-        <form id="loginform" class="form-vertical" id="loginform" name="loginform" autocomplete="off" action="dashboard.html" method="">
+        <form id="loginform" class="form-vertical" id="loginform" name="loginform" autocomplete="off"  action="dashboard.html"  method="">
              <div class="control-group normal_text"> <h1>Welcome</h1></div>
             <div class="control-group">
                 <div class="controls">
@@ -38,6 +38,7 @@
 
         const form = document.getElementById('loginform');
         var x=localStorage.getItem('token');
+        console.log(x);
 
         form.addEventListener("submit",(e)=>{
 
@@ -67,7 +68,18 @@
                 console.log("Major error is::",err);
             }
         }
-    fileout();
+
+            if(x==="QpwL5tke4Pnpja7X4"){
+                
+               alert("Token is matched Go ahead");
+            }
+            else{
+                alert("Token missing");
+            }
+
+            fileout();
+        
+    
     })
 
 
@@ -98,6 +110,27 @@
 
 
     // })
+
+
+    fetch(myurl)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      var myArray = data.data;
+
+      var filtered = myArray.filter(function(email){
+
+        return email;
+      });
+
+      console.log(filtered);
+
+      
+    }
+);
     
     </script>
     

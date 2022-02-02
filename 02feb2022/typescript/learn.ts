@@ -45,4 +45,16 @@ for(num=0;num<=20;num++) {
 console.log (" The count of odd values between 0 and 20 is: "+count)
 
 var foo = (x:number)=>10 + x 
-console.log(foo(100))     
+console.log(foo(100)) 
+
+function arraytest(names:string):void{
+    for(var i=0; i<names.length;i++){
+        console.log(arraytest[i]);
+    }
+}
+
+var names:string[] = new Array("raj","logesh","vicky","sathish");
+//arraytest(names[]);
+
+
+
