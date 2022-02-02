@@ -8,7 +8,7 @@
     <style>
       table, th,td {
         border: 1px solid black;
-        border-collapse:separate;
+        border-collapse:collapse;
       }
       th {
         text-align:center;
@@ -78,6 +78,7 @@ if (data.data.length > 0) {
 )
 
 function deleteRow(r) {
+    alert("sure you want to delete this row?");
       var i = r.parentNode.parentNode.rowIndex;
       document.getElementById("myTable").deleteRow(i);
     }
