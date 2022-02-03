@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="loginbox">            
-        <form id="loginform" class="form-vertical" id="loginform" name="loginform" autocomplete="off" action="dashboard.html" method=" ">
+        <form id="loginform" class="form-vertical" id="loginform" name="loginform" autocomplete="off" action="login.html" method=" ">
              <div class="control-group normal_text"> <h1>welcome to New register</h1></div>
             <div class="control-group">
                 <div class="controls">
@@ -79,6 +79,8 @@
 
         var token=localStorage.setItem("token",x);
         var tokens=localStorage.getItem("x");
+        alert("token is saved please go back to login page");
+        window.location.href = "login.html";
     }
     postdata();
     });
