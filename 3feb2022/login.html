@@ -37,7 +37,8 @@
         </form>        
     </div>
     <script>
-        const myurl = "https://reqres.in/api/users";
+        const myurl = "https://reqres.in/api/login";
+        localStorage.clear();
 
         const form = document.getElementById('loginform');
         var x=localStorage.getItem('token');
@@ -58,41 +59,53 @@
             
         }
     });
-    async function fileout() {
-        try {
-            let response = await fetch(myurl);
-            if(!response.ok) throw new Error("some issues");
+    async function postdata(){
+      const result = await fetch(myurl,{
+        method: "POST",
+        body:JSON.stringify({
+          email:a,
+          password:b
+        }),
+        headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json',
+            // 'Authorization':localStorage.getItem('token'),
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+      });
+      if(result.status === 200){
+        var out = await result.json();
+        console.log(out);
+        localStorage.setItem("token",out.token)
+        window.location.href = './users/dashboard.html';
+      }
+      else{
+        alert("User not found")
+      }
+    }
+    
+    postdata();
+  
 
-            if(response.ok){
-                const my_data = await response.json();
-                console.log(my_data);
-            }
-        }
-            catch (err) {
-                console.log("Major error is::",err);
-            }
-        }
 
-            if(x==="QpwL5tke4Pnpja7X4"){
+            // if(x==="QpwL5tke4Pnpja7X4"){
                 
-               alert("Token is matched Go ahead");
-               window.location.href ="./users/dashboard.html"
-            }
-            else{
-                alert("Token missing");
-                window.location.href = "login.html";
-            }
+            //    alert("Token is matched Go ahead");
+            //    window.location.href ="./users/dashboard.html"
+            // }
+            // else{
+            //     alert("Token missing");
+            //     window.location.href = "login.html";
+            // }
 
-            fileout();
+            // fileout();
         
     
     });
 
     //localStorage.removeItem('lastname');
 
-        if(localStorage["lastname"] === " "){
-            window.location.href="login.html";
-        }
+        
 
         
     // form.addEventListener('submit',(event) => {

@@ -29,6 +29,7 @@
   const url = "https://reqres.in/api/users";
   const form = document.getElementById('addform');
   
+  
  
   form.addEventListener("submit",(e) =>{
     e.preventDefault();
@@ -59,6 +60,15 @@
   }); 
 
   localStorage.setItem('lastname','selva');
+
+  if(x===""){
+    alert("Invalid ");
+    window.location.href('../login.html');
+
+  }
+  else{
+
+  }
 
   // function preventbackbutton() { window.history.forward(); }
   //   setTimeout("preventbackbutton()", 0);
