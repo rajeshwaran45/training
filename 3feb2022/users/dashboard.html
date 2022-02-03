@@ -124,7 +124,7 @@ function deleteRow(r) {
     function mylog() {
       window.location.href = "../login.html"
       localStorage.removeItem('lastname');
-      localStorage.removeItem('token');
+      //localStorage.removeItem('token');
     }
 
     function myadd()
@@ -135,6 +135,11 @@ function deleteRow(r) {
 
     localStorage.setItem('lastname','selva');
    //alert(sessionStorage.getItem('lastname'));
+
+
+   function preventbackbutton() { window.history.forward(); }
+    setTimeout("preventbackbutton()", 0);
+    window.onunload = function () { null };
 
    
    
