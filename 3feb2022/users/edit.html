@@ -16,11 +16,11 @@
         <form id="editform">
           <div class="mb-3 mt-3">
             <label for="text">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Your name" name="name">
+            <input type="text" class="form-control" id="name" placeholder="Enter Your name" name="name" required>
           </div>
           <div class="mb-3">
             <label for="pwd">Job:</label>
-            <input type="text" class="form-control" id="job" placeholder="Enter Your Job" name="job">
+            <input type="text" class="form-control" id="job" placeholder="Enter Your Job" name="job" required>
           </div>
           <button type="submit" class="btn btn-primary" >Submit</button>
         </form>
@@ -54,12 +54,7 @@
                   'Content-type': 'application/json; charset=UTF-8',
                 },
             });
-        //     if(result.status === 200){
-        //       var out = await result.json();
-        //       console.log(out);
-        //       window.location.href = "./dashboard.html";
-        //     }
-
+      
         
          if(response.status === 200){
              var output = await response.json();
