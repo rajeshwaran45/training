@@ -52,7 +52,7 @@
         </table>
       </div>
       <br>
-      <a href="./dashboard2.html">Page 2</a>
+      <a href="./dashboard2.html" class="pager-link">Page 2</a>
       <br><br>
       <button type="submit" class= "btn btn-success" value="Add" onclick="mylog()">Logout</button>
       <br><br>
@@ -123,6 +123,8 @@ function deleteRow(r) {
 
     function mylog() {
       window.location.href = "../login.html"
+      localStorage.removeItem('lastname');
+      localStorage.removeItem('token');
     }
 
     function myadd()
@@ -130,6 +132,13 @@ function deleteRow(r) {
       alert("You want to add ");
       window.location.href = "./add.html";
     }
+
+    localStorage.setItem('lastname','selva');
+   //alert(sessionStorage.getItem('lastname'));
+
+   
+   
+     //window.location.href="../login.html";
 </script>
 </body>
 </html>
