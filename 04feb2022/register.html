@@ -45,45 +45,55 @@
     
 
     <script>
-        const url='https://reqres.in/api/register';
-       var form = document.getElementById('loginform');
-       
-       form.addEventListener('submit',(event) => {
-        event.preventDefault();
-        var a = document.getElementById('email').value;
-        var b = document.getElementById('password').value;
-        //var c = document.getElementById('username').value;
-
-        async function postdata(){
-        var arrobj = { 
-            email:a,
-            password:b,
-            
-        };
-        console.log(arrobj);
-
-        const res = await fetch(url,{
-          method:"POST",
-          body: JSON.stringify(arrobj),
-          headers:{
-            'Access-Control-Allow-Origin': '*',
-            'Accept': 'application/json',
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        })
-        var output = await res.json();
-        console.log(output);
-
-        var x = output.token;
+        const myurl = "https://reqres.in/api/register";
+        const form = document.getElementById('loginform');
+        var x=localStorage.getItem('token');
         console.log(x);
 
-        var token=localStorage.setItem("token",x);
-        var tokens=localStorage.getItem("x");
-        alert("token is saved please go back to login page");
-        window.location.href = "login.html";
-    }
-    postdata();
+        form.addEventListener("submit",(e)=>{
+            event.preventDefault();
+
+        var a = document.getElementById('email').value;
+        var b = document.getElementById('password').value;
+         
+       
+
+        const promise = fetch(myurl, {
+        method:"GET",
+        headers: {
+            "content-tpe":"application/json",
+            
+        }
     });
+    async function postdata(){
+      const result = await fetch(myurl,{
+        method: "POST",
+        body:JSON.stringify({
+          email:a,
+          password:b
+        }),
+        headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json',
+            // 'Authorization':localStorage.getItem('token'),
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+      });
+      if(result.status === 200){
+        var out = await result.json();
+        console.log(out);
+        localStorage.setItem("token",out.token)
+        alert("successfully Register");
+        window.location.href = 'login.html';
+      }
+      else{
+        alert("Invalid Email! please enter a correct emailid ")
+      }
+    }
+    
+    postdata();
+  
+        });
 
             
     </script>

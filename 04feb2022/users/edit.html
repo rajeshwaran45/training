@@ -15,13 +15,13 @@
         <h2>Edit  form</h2>
         <form id="editform">
           <div class="mb-3 mt-3">
-            <label for="text">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Your name" name="name" maxlength="8" required>
+            <label for="text">First Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Your firstname" name="name" maxlength="10" required>
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="pwd">Job:</label>
             <input type="text" class="form-control" id="job" placeholder="Enter Your Job" name="job" required>
-          </div>
+          </div> -->
           <button type="submit" class="btn btn-primary" >Submit</button>
         </form>
       </div>
@@ -41,14 +41,14 @@
           e.preventDefault();
           
           var uname = document.getElementById('name').value;
-          var ujob =document.getElementById('job').value;
+          //var ujob =document.getElementById('job').value;
           
           async function patches(){
             const response = await fetch(url,{
               method: "PUT",
               body:JSON.stringify({
-                name:uname,
-                job:ujob
+                first_name:uname,
+                
               }),
               headers:{
                   'Access-Control-Allow-Origin': '*',
