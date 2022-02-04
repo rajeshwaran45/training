@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./task.css">
+    <title>New Registration </title>
+</head>
+<body>
+    <div id="loginbox">            
+        <form id="loginform" class="form-vertical" id="loginform" name="loginform" autocomplete="off" action="login.html" method=" ">
+             <div class="control-group normal_text"> <h1>welcome to New register</h1></div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on"><i class="fa fa-envelope"></i></span><input type="email" id="email" name="email" required  placeholder="emailid" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on"><i class="fa fa-lock"></i></span><input type="password" id="password" name="password" required  placeholder="Password" />
+                    </div>
+                </div>
+            </div>
+                <!-- <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on"><i class="fa fa-user"></i></span><input type="text" id="username" name="username" required  placeholder="username" />
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-actions">
+                
+                <span class="pull-right"><input type="submit" class="btn btn-success"  value="login" /></span>
+            </div>
+            <label><a href="login.html">Login Now!</a></label>
+        </form>
+            
+    </div>
+    
+    </div>
+    
+
+    <script>
+        const url='https://reqres.in/api/register';
+       var form = document.getElementById('loginform');
+       
+       form.addEventListener('submit',(event) => {
+        event.preventDefault();
+        var a = document.getElementById('email').value;
+        var b = document.getElementById('password').value;
+        //var c = document.getElementById('username').value;
+
+        async function postdata(){
+        var arrobj = { 
+            email:a,
+            password:b,
+            
+        };
+        console.log(arrobj);
+
+        const res = await fetch(url,{
+          method:"POST",
+          body: JSON.stringify(arrobj),
+          headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json',
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        })
+        var output = await res.json();
+        console.log(output);
+
+        var x = output.token;
+        console.log(x);
+
+        var token=localStorage.setItem("token",x);
+        var tokens=localStorage.getItem("x");
+        alert("token is saved please go back to login page");
+        window.location.href = "login.html";
+    }
+    postdata();
+    });
+
+            
+    </script>
+</body>
+</html>
