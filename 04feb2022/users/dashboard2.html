@@ -114,6 +114,16 @@ else{
     function myedit() {
         alert("sure you want to edit");
         window.location.href = "./edit.html";
+        var table = document.getElementById('myTable'),rIndex;
+
+        for(var i= 0; i < table.rows.length; i++){
+          table.rows[i].onclick= function () {
+            rIndex = this.rowIndex;
+            console.log(rIndex);
+            var myname = this.cells[2].innerHTML;
+            localStorage.setItem("myname",myname);
+          }
+        }
     }
 
     function myadd()
@@ -152,7 +162,7 @@ else{
 // }
 // patches();
 // }
-localStorage.setItem('lastname','selva');
+//localStorage.setItem('lastname','selva');
    //alert(sessionStorage.getItem('lastname'));
 
   //  function preventbackbutton() { window.history.forward(); }

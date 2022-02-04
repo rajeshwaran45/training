@@ -30,7 +30,7 @@
       <script>
 
           
-
+        document.getElementById("name").value = localStorage.getItem('myname');
         const url = "https://reqres.in/api/users/1";
         const form = document.getElementById('editform');
         var x=localStorage.getItem('token');
@@ -72,7 +72,7 @@
                     window.location.href="../login.html";
                   }
 
-                   localStorage.setItem('lastname','selva');
+                  // localStorage.setItem('lastname','selva');
 
     //                function preventbackbutton() { window.history.forward(); }
     // setTimeout("preventbackbutton()", 0);
